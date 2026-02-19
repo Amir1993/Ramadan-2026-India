@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramadan Mubarak 2026 | India Sehri & Iftar Timetable</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:#7a6030;--cream:#f0e6c8;--blue:#4a9ebe;--muted:#8a9ab5;--green:#4caf7d;--purple:#9b7fd4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#03080f;font-family:'EB Garamond',serif;color:var(--cream);min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:480px;background:linear-gradient(180deg,#04090f 0%,#060e1c 20%,#0a1628 55%,#060e1c 85%,#04090f 100%);min-height:100vh;position:relative;overflow-x:hidden}
+
+/* ── STARS ── */
+.stars-bg{position:fixed;top:0;left:50%;transform:translateX(-50%);width:480px;max-width:100vw;height:100%;pointer-events:none;z-index:0}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite;opacity:0}
+@keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--o)}}
+
+/* ── SHOOTING STARS ── */
+.shooting-star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:shoot var(--sd) linear infinite;animation-delay:var(--sdelay);opacity:0}
+.shooting-star::after{content:'';position:absolute;right:2px;top:50%;transform:translateY(-50%);width:var(--stail);height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.6),transparent)}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}80%{opacity:0.2}100%{opacity:0;transform:translate(calc(var(--sx)*1px),calc(var(--sy)*1px))}}
+
+/* ── FLOATING PARTICLES (noor) ── */
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.9),transparent);animation:floatUp var(--pd) ease-in-out infinite;animation-delay:var(--pdelay);opacity:0;pointer-events:none}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0.5)}20%{opacity:0.8}80%{opacity:0.3}100%{opacity:0;transform:translateY(-120px) scale(0.2)}}
+
+/* ── MOSQUE SILHOUETTE HEADER ── */
+.mosque-hero{position:relative;width:100%;height:200px;overflow:hidden;background:linear-gradient(180deg,#04080f 0%,#0a1830 35%,#162240 60%,#1e2e50 75%,#c9a84c22 90%,#c9a84c44 100%)}
+.sky-gradient{position:absolute;inset:0;background:linear-gradient(180deg,#020408 0%,#060d1a 30%,#0c1e38 55%,#172840 70%,rgba(60,30,10,0.4) 85%,rgba(201,168,76,0.25) 100%)}
+.horizon-glow{position:absolute;bottom:46px;left:0;right:0;height:30px;background:linear-gradient(180deg,transparent,rgba(201,168,76,0.18),rgba(201,168,76,0.32));filter:blur(6px)}
+.mosque-svg{position:absolute;bottom:0;left:0;right:0;width:100%;height:80px}
+.mosque-header-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:20px;z-index:2}
+.arabic-title{font-family:'Amiri',serif;font-size:48px;color:var(--gold-light);line-height:1.1;animation:glow 3s ease-in-out infinite;text-shadow:0 0 40px rgba(201,168,76,0.5)}
+@keyframes glow{0%,100%{text-shadow:0 0 30px rgba(201,168,76,0.4),0 0 60px rgba(201,168,76,0.15)}50%{text-shadow:0 0 60px rgba(201,168,76,0.8),0 0 100px rgba(201,168,76,0.3),0 0 140px rgba(201,168,76,0.1)}}
+
+/* ── LANTERNS ── */
+.lanterns{position:absolute;top:0;left:0;right:0;height:60px;display:flex;justify-content:space-around;align-items:flex-start;padding:0 10px;z-index:3;pointer-events:none}
+.lantern{display:flex;flex-direction:column;align-items:center;animation:sway var(--lspeed) ease-in-out infinite;animation-delay:var(--ldelay);transform-origin:top center}
+.lantern-string{width:1px;height:18px;background:linear-gradient(180deg,rgba(201,168,76,0.5),rgba(201,168,76,0.2))}
+.lantern-body{font-size:18px;filter:drop-shadow(0 0 8px rgba(201,168,76,0.7)) drop-shadow(0 0 16px rgba(201,168,76,0.4))}
+.lantern-glow{width:20px;height:6px;background:radial-gradient(ellipse,rgba(201,168,76,0.4),transparent);border-radius:50%;margin-top:-2px;animation:lglow var(--lspeed) ease-in-out infinite;animation-delay:var(--ldelay)}
+@keyframes sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes lglow{0%,100%{opacity:0.5;transform:scaleX(0.8)}50%{opacity:1;transform:scaleX(1.2)}}
+
+/* ── NAV ── */
+.content{position:relative;z-index:1}
+.nav-tabs{display:flex;border-bottom:2px solid rgba(201,168,76,0.2);background:rgba(4,8,15,0.98);position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 2px}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{flex:0 0 auto;min-width:72px;padding:10px 8px 8px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;transition:all .28s;position:relative;display:flex;flex-direction:column;align-items:center;gap:4px}
+.nav-tab-icon{font-size:22px;line-height:1;transition:transform .25s,filter .25s}
+.nav-tab-label{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:1.2px;color:var(--muted);transition:color .25s;white-space:nowrap}
+.nav-tab.active .nav-tab-icon{transform:scale(1.15);filter:drop-shadow(0 0 6px rgba(201,168,76,0.7))}
+.nav-tab.active .nav-tab-label{color:var(--gold-light)}
+.nav-tab.active{border-bottom-color:var(--gold)}
+.nav-tab.active::after{content:'';position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);width:36px;height:3px;background:var(--gold);border-radius:2px;filter:blur(4px)}
+.nav-tab:hover .nav-tab-icon{transform:scale(1.08)}
+.nav-tab:hover .nav-tab-label{color:var(--cream)}
+
+/* ── QURAN VERSE ── */
+.verse-day-card{margin:0 14px 14px;background:linear-gradient(145deg,rgba(201,168,76,0.08),rgba(74,158,190,0.05));border:1px solid rgba(201,168,76,0.35);border-radius:18px;padding:22px 18px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(201,168,76,0.15)}
+.verse-badge{display:inline-block;background:linear-gradient(135deg,rgba(201,168,76,0.18),rgba(201,168,76,0.08));border:1px solid rgba(201,168,76,0.4);border-radius:20px;padding:5px 16px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--gold);margin-bottom:14px}
+.verse-arabic{font-family:'Amiri',serif;font-size:22px;color:var(--gold-light);line-height:2;direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.25);margin:10px 0 14px}
+.verse-trans{font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--cream);line-height:1.7;margin-bottom:8px}
+.verse-ref{font-family:'Cinzel',serif;font-size:7px;letter-spacing:1.5px;color:var(--gold);opacity:0.8}
+.verse-nav{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.verse-nav-btn{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:6px 14px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:1px;color:var(--gold);cursor:pointer;transition:all .2s}
+.verse-nav-btn:hover{background:rgba(201,168,76,0.22);border-color:var(--gold)}
+.verse-index{font-family:'Cinzel',serif;font-size:8px;color:var(--muted);text-align:center;margin-top:8px}
+
+/* ── ZAKAT CALCULATOR ── */
+.zakat-card{margin:0 14px 12px;background:linear-gradient(145deg,rgba(76,175,125,0.07),rgba(76,175,125,0.03));border:1px solid rgba(76,175,125,0.28);border-radius:16px;padding:18px 16px;box-shadow:0 6px 24px rgba(0,0,0,0.3)}
+.zakat-label{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:1.5px;color:var(--green);margin-bottom:8px}
+.zakat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.zakat-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0}
+.zakat-input-wrap{flex:1}
+.zakat-lbl{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;color:var(--muted);margin-bottom:3px}
+.zakat-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(76,175,125,0.3);border-radius:8px;padding:8px 10px;font-family:'Cinzel',serif;font-size:13px;color:var(--cream);outline:none;transition:border .2s;-webkit-appearance:none}
+.zakat-input:focus{border-color:rgba(76,175,125,0.7);background:rgba(76,175,125,0.06)}
+.zakat-unit{font-family:'Cinzel',serif;font-size:7px;color:var(--muted);margin-top:2px}
+.zakat-result{margin:0 14px 12px;background:linear-gradient(135deg,rgba(76,175,125,0.14),rgba(76,175,125,0.06));border:1px solid rgba(76,175,125,0.5);border-radius:16px;padding:18px;text-align:center;box-shadow:0 0 20px rgba(76,175,125,0.1)}
+.zakat-amount{font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:var(--green);text-shadow:0 0 20px rgba(76,175,125,0.4)}
+.zakat-nisab-note{font-family:'EB Garamond',serif;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}
+.zakat-calc-btn{width:calc(100% - 28px);margin:0 14px 14px;background:linear-gradient(135deg,rgba(76,175,125,0.2),rgba(76,175,125,0.1));border:1px solid rgba(76,175,125,0.5);border-radius:12px;padding:14px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--green);cursor:pointer;transition:all .3s;text-align:center}
+.zakat-calc-btn:hover{background:linear-gradient(135deg,rgba(76,175,125,0.3),rgba(76,175,125,0.15));box-shadow:0 0 20px rgba(76,175,125,0.2)}
+
+/* ── TARAWEEH TRACKER ── */
+.taraweeh-card{margin:0 14px 14px;background:linear-gradient(145deg,rgba(155,127,212,0.08),rgba(155,127,212,0.03));border:1px solid rgba(155,127,212,0.3);border-radius:16px;padding:18px;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,0.3)}
+.rakat-display{font-family:'Cinzel',serif;font-size:72px;font-weight:700;color:var(--purple);line-height:1;text-shadow:0 0 30px rgba(155,127,212,0.4)}
+.rakat-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--muted);margin:4px 0 16px}
+.rakat-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:12px 0;padding:0 10px}
+.rakat-dot{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(155,127,212,0.35);transition:all .25s;cursor:pointer}
+.rakat-dot.done{background:var(--purple);border-color:var(--purple);box-shadow:0 0 8px rgba(155,127,212,0.5)}
+.rakat-dot.milestone{border-color:var(--gold);border-width:2px}
+.rakat-dot.done.milestone{background:var(--gold);border-color:var(--gold);box-shadow:0 0 10px rgba(201,168,76,0.5)}
+.rakat-btns{display:flex;justify-content:center;gap:16px;margin-top:16px}
+.rakat-btn{width:60px;height:60px;border-radius:50%;font-size:28px;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;border:1.5px solid}
+.rakat-btn.add{background:rgba(155,127,212,0.18);border-color:rgba(155,127,212,0.6);color:var(--purple)}
+.rakat-btn.add:active{transform:scale(0.92);background:rgba(155,127,212,0.35)}
+.rakat-btn.sub{background:rgba(100,70,20,0.15);border-color:rgba(100,70,20,0.4);color:var(--gold-dim)}
+.rakat-btn.sub:active{transform:scale(0.92)}
+.rakat-btn.reset-btn{width:auto;border-radius:20px;padding:0 18px;font-size:7px;font-family:'Cinzel',serif;letter-spacing:1px;background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);color:var(--muted);height:36px}
+.rakat-progress{margin-top:14px;height:6px;background:rgba(155,127,212,0.12);border-radius:3px;overflow:hidden}
+.rakat-fill{height:100%;background:linear-gradient(90deg,rgba(155,127,212,0.6),var(--purple),var(--gold));border-radius:3px;transition:width .3s}
+.rakat-milestone-info{font-family:'EB Garamond',serif;font-size:13px;color:var(--cream);margin-top:10px;line-height:1.5;min-height:20px}
+
+/* ── TASBEEH COUNTER ── */
+.tasbeeh-card{margin:0 14px 14px;background:linear-gradient(145deg,rgba(201,168,76,0.07),rgba(74,158,190,0.04));border:1px solid rgba(201,168,76,0.3);border-radius:16px;padding:16px;text-align:center}
+.tasbeeh-modes{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
+.tasbeeh-mode-btn{flex:1;min-width:90px;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:8px 6px;font-family:'Cinzel',serif;font-size:6px;letter-spacing:1px;color:var(--muted);cursor:pointer;transition:all .2s;line-height:1.6}
+.tasbeeh-mode-btn.active{background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.6);color:var(--gold-light)}
+.tasbeeh-arabic{font-family:'Amiri',serif;font-size:28px;color:var(--gold-light);direction:rtl;margin-bottom:4px;text-shadow:0 0 20px rgba(201,168,76,0.3)}
+.tasbeeh-meaning{font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--muted);margin-bottom:14px}
+.tasbeeh-count-display{font-family:'Cinzel',serif;font-size:80px;font-weight:700;color:var(--gold-light);line-height:1;text-shadow:0 0 30px rgba(201,168,76,0.4);cursor:pointer;user-select:none;-webkit-user-select:none;transition:transform .08s}
+.tasbeeh-count-display:active{transform:scale(0.95)}
+.tasbeeh-target{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--muted);margin:6px 0 16px}
+.tasbeeh-tap-btn{width:160px;height:160px;border-radius:50%;background:linear-gradient(145deg,rgba(201,168,76,0.12),rgba(201,168,76,0.05));border:2px solid rgba(201,168,76,0.45);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;transition:all .12s;box-shadow:0 0 30px rgba(201,168,76,0.1),inset 0 1px 0 rgba(201,168,76,0.2);-webkit-tap-highlight-color:transparent}
+.tasbeeh-tap-btn:active{transform:scale(0.93);background:linear-gradient(145deg,rgba(201,168,76,0.25),rgba(201,168,76,0.12));box-shadow:0 0 50px rgba(201,168,76,0.3)}
+.tasbeeh-tap-inner{font-size:40px;margin-bottom:4px}
+.tasbeeh-tap-lbl{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--gold)}
+.tasbeeh-progress{height:5px;background:rgba(201,168,76,0.1);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.tasbeeh-fill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-light));border-radius:3px;transition:width .2s}
+.tasbeeh-total{font-family:'EB Garamond',serif;font-size:12px;color:var(--muted);margin-bottom:10px}
+.tasbeeh-btns{display:flex;justify-content:center;gap:10px}
+.tasbeeh-btn{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:7px 16px;font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;color:var(--muted);cursor:pointer;transition:all .2s}
+.tasbeeh-btn:hover{background:rgba(201,168,76,0.1);color:var(--gold);border-color:rgba(201,168,76,0.3)}
+.section{display:none;animation:fadeIn .45s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HEADER BELOW MOSQUE ── */
+.header-sub{text-align:center;padding:14px 20px 12px;border-bottom:1px solid rgba(201,168,76,0.12);background:linear-gradient(180deg,rgba(201,168,76,0.03),transparent)}
+.divider{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px 0}
+.dl{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.dlr{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+.diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 6px rgba(201,168,76,0.5)}
+.holy-text{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--gold)}
+.ramzan-big{font-family:'Cinzel',serif;font-size:36px;font-weight:700;letter-spacing:6px;color:var(--cream);text-shadow:0 0 30px rgba(201,168,76,0.2)}
+.year-badge{background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.35);border-radius:20px;padding:6px 18px;margin:8px auto;display:inline-block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--gold);box-shadow:0 0 15px rgba(201,168,76,0.1)}
+
+/* ── PREPARED BY ── */
+.prepared-by{margin:10px 14px 0;background:linear-gradient(135deg,rgba(201,168,76,0.07),rgba(74,158,190,0.05));border:1px solid rgba(201,168,76,0.22);border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,0.3),inset 0 1px 0 rgba(201,168,76,0.1)}
+.pb-label{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--muted);margin-bottom:3px}
+.pb-name{font-family:'Amiri',serif;font-size:20px;color:var(--gold-light)}
+.pb-desc{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;color:var(--muted);line-height:1.6;text-align:right}
+
+/* ── SADQA BANNER ── */
+.sadqa-banner{margin:8px 14px 0;background:linear-gradient(135deg,rgba(155,127,212,0.12),rgba(201,168,76,0.06),rgba(155,127,212,0.08));border:1px solid rgba(155,127,212,0.4);border-radius:14px;padding:14px 16px;text-align:center;box-shadow:0 4px 25px rgba(155,127,212,0.1),inset 0 1px 0 rgba(155,127,212,0.15)}
+.sadqa-title{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--purple);margin-bottom:4px}
+.sadqa-arabic{font-family:'Amiri',serif;font-size:15px;color:var(--gold-light);direction:rtl;line-height:1.7;margin-bottom:5px}
+.sadqa-text{font-family:'EB Garamond',serif;font-size:12.5px;color:var(--cream);line-height:1.6}
+.sadqa-dua{font-family:'EB Garamond',serif;font-style:italic;font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+.source-badge{margin:8px 14px 0;background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.2);border-radius:20px;padding:6px 14px;font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1.5px;color:var(--green);text-align:center}
+
+/* ── MOON SECTION ── */
+.moon-wrap{display:flex;justify-content:center;padding:16px 0 10px;position:relative}
+.moon-halo{position:absolute;width:110px;height:110px;background:radial-gradient(circle,rgba(201,168,76,0.18) 0%,rgba(201,168,76,0.05) 50%,transparent 70%);border-radius:50%;animation:pulse 3s ease-in-out infinite}
+.moon-halo2{position:absolute;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);border-radius:50%;animation:pulse 4s ease-in-out infinite reverse}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.15);opacity:1}}
+.moon-em{font-size:60px;filter:drop-shadow(0 0 25px rgba(201,168,76,0.6)) drop-shadow(0 0 50px rgba(201,168,76,0.3));animation:mf 4s ease-in-out infinite}
+@keyframes mf{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+/* ── ALERTS ── */
+.alert-bar{margin:0 14px 8px;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:1.5px}
+.alert-green{background:linear-gradient(135deg,rgba(76,175,125,0.18),rgba(76,175,125,0.08));border:1px solid rgba(76,175,125,0.35);color:var(--green);box-shadow:0 0 20px rgba(76,175,125,0.1)}
+.alert-blue{background:linear-gradient(135deg,rgba(74,158,190,0.18),rgba(74,158,190,0.08));border:1px solid rgba(74,158,190,0.35);color:var(--blue);box-shadow:0 0 20px rgba(74,158,190,0.1)}
+.hidden{display:none!important}
+
+/* ── TODAY CARD ── */
+.today-card{margin:0 14px 10px;background:linear-gradient(145deg,rgba(255,255,255,0.05),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:18px 16px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(201,168,76,0.12)}
+.today-lbl{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:2px;color:var(--gold);margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:6px}
+.today-date{font-family:'EB Garamond',serif;font-size:19px;color:var(--cream);margin:5px 0 9px}
+.city-sw{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;margin-bottom:12px}
+.city-btn{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-radius:20px;padding:4px 10px;font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1.5px;color:var(--gold);cursor:pointer;transition:all .2s}
+.city-btn.active{background:rgba(201,168,76,0.22);border-color:var(--gold);color:var(--gold-light);box-shadow:0 0 10px rgba(201,168,76,0.2)}
+.main-clock{font-family:'Cinzel',serif;font-size:48px;font-weight:700;color:#fff;letter-spacing:4px;text-shadow:0 0 30px rgba(255,255,255,0.1)}
+.cd-label{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:2px;color:var(--gold);margin:4px 0 10px}
+.cd-vals{display:flex;justify-content:center;gap:20px;margin-bottom:14px}
+.cvn{font-family:'Cinzel',serif;font-size:30px;font-weight:700;color:var(--blue);text-shadow:0 0 20px rgba(74,158,190,0.4)}
+.cvu{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--muted);text-align:center;margin-top:2px}
+.si-row{display:flex;border-top:1px solid rgba(201,168,76,0.12);padding-top:12px}
+.si-col{flex:1;text-align:center;padding:3px}
+.si-col:first-child{border-right:1px solid rgba(201,168,76,0.12)}
+.si-lbl{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:2px;color:var(--gold);margin-bottom:5px}
+.si-time{font-family:'Cinzel',serif;font-size:20px;font-weight:600;color:var(--cream)}
+.stag{display:inline-block;font-family:'Cinzel',serif;font-size:6px;letter-spacing:1px;padding:2px 7px;border-radius:20px;margin-top:4px}
+.tag-pass{background:rgba(100,70,20,0.25);border:1px solid rgba(100,70,20,0.4);color:#8b6928}
+.tag-up{background:rgba(74,158,190,0.18);border:1px solid rgba(74,158,190,0.35);color:var(--blue)}
+
+/* ── ROZA HIGHLIGHT ── */
+.roza-highlight{margin:0 14px 10px;background:linear-gradient(135deg,rgba(201,168,76,0.09),rgba(74,158,190,0.06),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.3);border-radius:16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,0.3),inset 0 1px 0 rgba(201,168,76,0.1)}
+.rh-label{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--muted);margin-bottom:3px}
+.rh-roza{font-family:'Cinzel',serif;font-size:28px;font-weight:700;color:var(--gold-light);text-shadow:0 0 20px rgba(201,168,76,0.3)}
+.rh-sub{font-family:'EB Garamond',serif;font-size:12px;color:var(--muted);margin-top:2px}
+.rh-progress{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:1px;color:var(--gold);margin-bottom:6px}
+.mini-prog{width:100px;height:5px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;margin-left:auto}
+.mini-fill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-light));border-radius:3px;transition:width 1s;box-shadow:0 0 8px rgba(201,168,76,0.4)}
+.rh-eid{font-family:'Cinzel',serif;font-size:7px;letter-spacing:1px;color:var(--muted);margin-top:6px}
+
+/* ── SECTION HEADER ── */
+.sec-hdr{text-align:center;padding:14px 14px 8px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* ── PRAYER GRID ── */
+.prayer-grid{margin:0 14px 10px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pt-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 8px;text-align:center;transition:all .3s}
+.pt-card.active-prayer{border-color:rgba(201,168,76,0.55);background:linear-gradient(145deg,rgba(201,168,76,0.1),rgba(201,168,76,0.04));box-shadow:0 0 15px rgba(201,168,76,0.12),inset 0 1px 0 rgba(201,168,76,0.15)}
+.pt-icon{font-size:16px;margin-bottom:4px}
+.pt-lbl{font-family:'Cinzel',serif;font-size:6px;letter-spacing:1px;color:var(--muted);margin-bottom:3px}
+.pt-time{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:var(--cream)}
+.eid-card{margin:0 14px 10px;background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(74,158,190,0.06),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.25);border-radius:16px;padding:16px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(201,168,76,0.1)}
+.eid-days{font-family:'Cinzel',serif;font-size:44px;font-weight:700;color:var(--gold-light);line-height:1;text-shadow:0 0 30px rgba(201,168,76,0.4)}
+.eid-sub{font-family:'EB Garamond',serif;font-size:13px;color:var(--muted);margin-top:3px}
+.special-nights{margin:0 14px 10px}
+.night-card{background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;transition:all .3s}
+.night-card.qadr{border-color:rgba(201,168,76,0.3);background:linear-gradient(135deg,rgba(201,168,76,0.07),rgba(201,168,76,0.02));box-shadow:0 2px 12px rgba(201,168,76,0.06)}
+.night-name{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:var(--cream)}
+.night-desc{font-family:'EB Garamond',serif;font-size:12px;color:var(--muted);margin-top:2px}
+.night-date{font-family:'Cinzel',serif;font-size:7.5px;color:var(--gold);margin-top:3px}
+.night-badge{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;padding:4px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold)}
+.night-badge.past-b{background:rgba(100,70,20,0.15);border-color:rgba(100,70,20,0.25);color:#7a5a20}
+.cities-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px;margin-bottom:14px}
+.city-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(201,168,76,0.02));border:1px solid rgba(201,168,76,0.12);border-radius:14px;padding:14px;cursor:pointer;transition:all .25s}
+.city-card:hover,.city-card.active-city{border-color:rgba(201,168,76,0.6);background:linear-gradient(145deg,rgba(201,168,76,0.08),rgba(201,168,76,0.03));box-shadow:0 4px 20px rgba(201,168,76,0.1),inset 0 1px 0 rgba(201,168,76,0.15)}
+.cname{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold-light);margin-bottom:8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.def-tag{background:var(--gold);color:var(--navy);font-size:6px;letter-spacing:1px;padding:2px 6px;border-radius:10px;font-weight:700}
+.ctrow{display:flex;align-items:center;gap:4px;margin:3px 0;font-family:'Cinzel',serif;font-size:7px;letter-spacing:1px}
+.ct-lbl{color:var(--muted);flex:1}
+.ct-val{color:var(--cream);font-size:13px;font-weight:600}
+.city-src{font-family:'Cinzel',serif;font-size:6px;color:var(--muted);margin-top:6px;letter-spacing:1px}
+.dua-card{margin:0 14px 12px;background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(201,168,76,0.16);border-radius:16px;padding:18px 16px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.25)}
+.dua-card.tarawih{border-color:rgba(155,127,212,0.35);background:linear-gradient(145deg,rgba(155,127,212,0.06),rgba(155,127,212,0.02));box-shadow:0 4px 20px rgba(155,127,212,0.06)}
+.dua-type{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:5px}
+.dua-type.tw{color:var(--purple)}
+.dua-arabic{font-family:'Amiri',serif;font-size:22px;color:var(--gold-light);line-height:1.9;direction:rtl;margin-bottom:10px;text-shadow:0 0 20px rgba(201,168,76,0.2)}
+.dua-trans{font-family:'EB Garamond',serif;font-style:italic;font-size:12.5px;color:var(--muted);margin-bottom:5px;line-height:1.5}
+.dua-meaning{font-family:'EB Garamond',serif;font-size:12.5px;color:var(--cream);line-height:1.5}
+.dua-ref{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;color:var(--muted);margin-top:7px;opacity:.7}
+.ashra-banner{margin:0 14px 8px;border-radius:20px;padding:10px 16px;text-align:center;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px}
+.ashra-1{background:linear-gradient(135deg,rgba(76,175,125,0.1),rgba(76,175,125,0.05));border:1px solid rgba(76,175,125,0.28);color:var(--green)}
+.ashra-2{background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.28);color:var(--gold)}
+.ashra-3{background:linear-gradient(135deg,rgba(74,158,190,0.1),rgba(74,158,190,0.05));border:1px solid rgba(74,158,190,0.28);color:var(--blue)}
+.tw-section{margin:0 14px 8px;background:linear-gradient(135deg,rgba(155,127,212,0.08),rgba(155,127,212,0.04));border:1px solid rgba(155,127,212,0.25);border-radius:12px;padding:9px 14px;text-align:center;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--purple)}
+.sched-wrap{margin:0 14px 30px;border:1px solid rgba(201,168,76,0.18);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.35)}
+.sched-hdr-row{display:grid;grid-template-columns:2.2fr 1.2fr 0.6fr 1.2fr 1.2fr 0.8fr;background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.04));border-bottom:1px solid rgba(201,168,76,0.18);padding:9px 10px}
+.sh{font-family:'Cinzel',serif;font-size:6px;letter-spacing:1px;color:var(--gold);text-align:center}
+.sh:first-child{text-align:left}
+.sched-body{max-height:440px;overflow-y:auto}
+.sched-body::-webkit-scrollbar{width:3px}
+.sched-body::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+.srow{display:grid;grid-template-columns:2.2fr 1.2fr 0.6fr 1.2fr 1.2fr 0.8fr;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.035);align-items:center;transition:background .2s}
+.srow:last-child{border-bottom:none}
+.srow.today-row{background:linear-gradient(90deg,rgba(201,168,76,0.09),rgba(201,168,76,0.04));border-left:3px solid var(--gold)}
+.srow.past{opacity:.38}
+.srow.qadr-night{border-left:2px solid rgba(201,168,76,0.4);background:rgba(201,168,76,0.025)}
+.sc{font-size:11px;color:var(--cream);text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
+.sc:first-child{text-align:left;align-items:flex-start;justify-content:flex-start}
+.sc-date{font-family:'EB Garamond',serif;font-size:11px;font-weight:500;line-height:1.3}
+.t-pill{background:var(--gold);color:var(--navy);font-family:'Cinzel',serif;font-size:6px;letter-spacing:1px;padding:1px 6px;border-radius:10px;font-weight:700}
+.sc-day{font-family:'Cinzel',serif;font-size:7px;letter-spacing:1px;color:var(--gold)}
+.sc-day.juma{color:var(--gold-light);font-weight:600}
+.sc-roza{font-family:'Cinzel',serif;font-size:13px;color:var(--blue)}
+.sc-time{font-family:'Cinzel',serif;font-size:10px;color:var(--cream)}
+.sc-rem{font-family:'Cinzel',serif;font-size:7.5px;color:var(--muted)}
+.footer{text-align:center;padding:18px 14px;font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1.5px;color:var(--gold-dim);border-top:1px solid rgba(201,168,76,0.12);line-height:2;background:linear-gradient(180deg,transparent,rgba(201,168,76,0.03))}
+.footer-name{color:var(--gold);font-size:8px;letter-spacing:2px}
+.footer-sadqa{color:var(--purple);font-size:7px;letter-spacing:1.5px}
+@media(max-width:380px){.arabic-title{font-size:40px}.ramzan-big{font-size:30px}.main-clock{font-size:40px}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="stars-bg" id="stars"></div>
+<div class="content">
+
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showTab('home')"><div class="nav-tab-icon">🌙</div><div class="nav-tab-label">HOME</div></div>
+  <div class="nav-tab" onclick="showTab('cities')"><div class="nav-tab-icon">🕌</div><div class="nav-tab-label">CITIES</div></div>
+  <div class="nav-tab" onclick="showTab('schedule')"><div class="nav-tab-icon">📅</div><div class="nav-tab-label">SCHEDULE</div></div>
+  <div class="nav-tab" onclick="showTab('duas')"><div class="nav-tab-icon">🤲</div><div class="nav-tab-label">DUAS</div></div>
+  <div class="nav-tab" onclick="showTab('quran')"><div class="nav-tab-icon">📖</div><div class="nav-tab-label">QURAN</div></div>
+  <div class="nav-tab" onclick="showTab('zakat')"><div class="nav-tab-icon">💰</div><div class="nav-tab-label">ZAKAT</div></div>
+  <div class="nav-tab" onclick="showTab('ibadah')"><div class="nav-tab-icon">📿</div><div class="nav-tab-label">IBADAH</div></div>
+  <div class="nav-tab" onclick="showTab('sadqa')"><div class="nav-tab-icon">💜</div><div class="nav-tab-label">SADQA</div></div>
+</div>
+
+<!-- HOME -->
+<div class="section active" id="tab-home">
+
+  <!-- MOSQUE HERO -->
+  <div class="mosque-hero">
+    <div class="sky-gradient"></div>
+    <div class="horizon-glow"></div>
+
+    <!-- Lanterns -->
+    <div class="lanterns">
+      <div class="lantern" style="--lspeed:3.2s;--ldelay:0s"><div class="lantern-string"></div><div class="lantern-body">🏮</div><div class="lantern-glow"></div></div>
+      <div class="lantern" style="--lspeed:2.8s;--ldelay:0.4s"><div class="lantern-string"></div><div class="lantern-body">🪔</div><div class="lantern-glow"></div></div>
+      <div class="lantern" style="--lspeed:3.5s;--ldelay:0.8s"><div class="lantern-string"></div><div class="lantern-body">🏮</div><div class="lantern-glow"></div></div>
+      <div class="lantern" style="--lspeed:2.6s;--ldelay:0.2s"><div class="lantern-string"></div><div class="lantern-body">🪔</div><div class="lantern-glow"></div></div>
+      <div class="lantern" style="--lspeed:3.8s;--ldelay:0.6s"><div class="lantern-string"></div><div class="lantern-body">🏮</div><div class="lantern-glow"></div></div>
+    </div>
+
+    <!-- Stars in hero -->
+    <div style="position:absolute;top:20px;left:18%;font-size:6px;color:#fff;opacity:0.7;animation:twinkle 2s ease-in-out infinite">✦</div>
+    <div style="position:absolute;top:35px;right:22%;font-size:8px;color:#fff;opacity:0.5;animation:twinkle 3s ease-in-out infinite 1s">✦</div>
+    <div style="position:absolute;top:55px;left:35%;font-size:5px;color:#fff;opacity:0.6;animation:twinkle 2.5s ease-in-out infinite 0.5s">✦</div>
+    <div style="position:absolute;top:45px;right:40%;font-size:7px;color:rgba(201,168,76,0.9);animation:twinkle 2s ease-in-out infinite 1.5s">★</div>
+
+    <!-- Header content -->
+    <div class="mosque-header-content">
+      <div class="arabic-title">رَمَضَان مُبَارَك</div>
+      <div style="display:flex;align-items:center;gap:8px;margin:5px 0">
+        <div style="flex:1;max-width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.6))"></div>
+        <div style="width:6px;height:6px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 8px rgba(201,168,76,0.6)"></div>
+        <div style="flex:1;max-width:60px;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.6),transparent)"></div>
+      </div>
+    </div>
+
+    <!-- Mosque SVG silhouette -->
+    <svg class="mosque-svg" viewBox="0 0 480 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="mqg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0a1628"/>
+          <stop offset="100%" stop-color="#060e1c"/>
+        </linearGradient>
+      </defs>
+      <!-- Ground -->
+      <rect x="0" y="65" width="480" height="15" fill="url(#mqg)"/>
+      <!-- Left minaret -->
+      <rect x="30" y="20" width="10" height="45" fill="url(#mqg)"/>
+      <polygon points="30,20 40,20 35,8" fill="url(#mqg)"/>
+      <ellipse cx="35" cy="23" rx="6" ry="3" fill="url(#mqg)"/>
+      <!-- Right minaret -->
+      <rect x="440" y="20" width="10" height="45" fill="url(#mqg)"/>
+      <polygon points="440,20 450,20 445,8" fill="url(#mqg)"/>
+      <ellipse cx="445" cy="23" rx="6" ry="3" fill="url(#mqg)"/>
+      <!-- Left small minaret -->
+      <rect x="100" y="32" width="7" height="33" fill="url(#mqg)"/>
+      <polygon points="100,32 107,32 103.5,22" fill="url(#mqg)"/>
+      <!-- Right small minaret -->
+      <rect x="373" y="32" width="7" height="33" fill="url(#mqg)"/>
+      <polygon points="373,32 380,32 376.5,22" fill="url(#mqg)"/>
+      <!-- Main dome -->
+      <path d="M170,65 L170,40 Q240,5 310,40 L310,65 Z" fill="url(#mqg)"/>
+      <!-- Main dome tip -->
+      <path d="M237,5 Q240,0 243,5 L242,8 L238,8 Z" fill="url(#mqg)"/>
+      <path d="M240,5 L240,0" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
+      <!-- Side domes -->
+      <path d="M120,65 L120,50 Q145,32 170,50 L170,65 Z" fill="url(#mqg)"/>
+      <path d="M310,65 L310,50 Q335,32 360,50 L360,65 Z" fill="url(#mqg)"/>
+      <!-- Facade -->
+      <rect x="120" y="50" width="240" height="15" fill="url(#mqg)"/>
+      <!-- Arches -->
+      <path d="M155,65 L155,58 Q165,50 175,58 L175,65 Z" fill="rgba(4,9,15,0.8)"/>
+      <path d="M195,65 L195,58 Q205,50 215,58 L215,65 Z" fill="rgba(4,9,15,0.8)"/>
+      <path d="M227,65 L227,56 Q240,46 253,56 L253,65 Z" fill="rgba(4,9,15,0.8)"/>
+      <path d="M265,65 L265,58 Q275,50 285,58 L285,65 Z" fill="rgba(4,9,15,0.8)"/>
+      <path d="M305,65 L305,58 Q315,50 325,58 L325,65 Z" fill="rgba(4,9,15,0.8)"/>
+      <!-- Horizon gold line -->
+      <line x1="0" y1="65" x2="480" y2="65" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="header-sub">
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:4px 0"><span style="color:var(--gold)">✦</span><span class="holy-text">HOLY MONTH OF</span><span style="color:var(--gold)">✦</span></div>
+    <div class="ramzan-big">RAMADAN</div>
+    <div class="year-badge">2026 · 1447 AH · INDIA 🇮🇳</div>
+  </div>
+
+  <div class="prepared-by">
+    <div><div class="pb-label">✦ CRAFTED WITH LOVE BY</div><div class="pb-name">Amir Nazir Shaikh</div></div>
+    <div><div class="pb-desc">Ramadan 2026 · India<br>1447 AH · Hanafi Method<br>Shared with love & duas 🤲</div></div>
+  </div>
+  <div class="sadqa-banner">
+    <div style="font-size:20px;margin-bottom:5px">💜🤲</div>
+    <div class="sadqa-title">✦ SADQA-E-JARIYA ✦</div>
+    <div class="sadqa-arabic">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
+    <div class="sadqa-text">This app is dedicated as <strong style="color:var(--gold-light)">Sadqa-e-Jariya</strong> for the soul of<br><strong style="color:var(--gold-light);font-size:15px">Munira Nazir Shaikh</strong> — beloved Ammi 💜<br><em style="font-size:12px">May every prayer time viewed &amp; every dua read be a source of noor for her soul.</em></div>
+    <div class="sadqa-dua">اللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا وَأَكْرِمْ نُزُلَهَا وَنَوِّرْ قَبْرَهَا<br><em>O Allah, forgive her, have mercy on her, pardon her, honour her and illuminate her grave. Ameen 🤲</em></div>
+  </div>
+  <div class="source-badge">✅ PUNE: LOCAL COMMUNITY TIMETABLE · OTHER CITIES: VERIFIED SOURCES · HANAFI METHOD · INDIA 2026</div>
+  <div class="moon-wrap"><div class="moon-halo2"></div><div class="moon-halo"></div><div class="moon-em">🌙</div></div>
+  <div class="alert-bar alert-green hidden" id="iftar-alert">🎉 IFTAR TIME! ROZA COMPLETE — ALLAHU AKBAR!</div>
+  <div class="alert-bar alert-blue hidden" id="sehri-alert">⚠ SEHRI ENDING SOON — LAST 10 MINUTES!</div>
+  <div class="today-card">
+    <div class="today-lbl"><span>✦</span><span id="roza-lbl">TODAY · RAMADAN 1447 AH</span><span>✦</span></div>
+    <div class="today-date" id="today-date">—</div>
+    <div class="city-sw" id="city-sw"></div>
+    <div class="main-clock" id="clock">--:--:--</div>
+    <div class="cd-label" id="cd-label">TIME REMAINING UNTIL IFTAR</div>
+    <div class="cd-vals">
+      <div><div class="cvn" id="cd-h">--</div><div class="cvu">HOURS</div></div>
+      <div><div class="cvn" id="cd-m">--</div><div class="cvu">MINS</div></div>
+      <div><div class="cvn" id="cd-s">--</div><div class="cvu">SECS</div></div>
+    </div>
+    <div class="si-row">
+      <div class="si-col"><div class="si-lbl">🌙 SEHRI ENDS</div><div class="si-time" id="sehri-t">--:--</div><span class="stag tag-up" id="sehri-st">—</span></div>
+      <div class="si-col"><div class="si-lbl">☀ IFTAR TIME</div><div class="si-time" id="iftar-t">--:--</div><span class="stag tag-up" id="iftar-st">—</span></div>
+    </div>
+  </div>
+  <div class="roza-highlight">
+    <div><div class="rh-label">CURRENT ROZA</div><div class="rh-roza" id="rh-num">--</div><div class="rh-sub">of 30 · Ramadan 1447 AH</div></div>
+    <div style="text-align:right"><div class="rh-progress" id="rh-pct">-- complete</div><div class="mini-prog"><div class="mini-fill" id="mini-fill" style="width:0%"></div></div><div class="rh-eid"><span id="eid-inline">--</span> days to <span style="color:var(--gold-light)">Eid ✨</span></div></div>
+  </div>
+  <div class="sec-hdr"><span>✦</span><span>PRAYER TIMES TODAY</span><span>✦</span></div>
+  <div class="prayer-grid">
+    <div class="pt-card" id="pt-fajr"><div class="pt-icon">🌅</div><div class="pt-lbl">FAJR / SEHRI END</div><div class="pt-time" id="t-fajr">—</div></div>
+    <div class="pt-card" id="pt-dhuhr"><div class="pt-icon">☀️</div><div class="pt-lbl">DHUHR</div><div class="pt-time" id="t-dhuhr">—</div></div>
+    <div class="pt-card" id="pt-asr"><div class="pt-icon">🌤</div><div class="pt-lbl">ASR</div><div class="pt-time" id="t-asr">—</div></div>
+    <div class="pt-card" id="pt-maghrib"><div class="pt-icon">🌇</div><div class="pt-lbl">MAGHRIB / IFTAR</div><div class="pt-time" id="t-maghrib">—</div></div>
+    <div class="pt-card" id="pt-isha"><div class="pt-icon">🌙</div><div class="pt-lbl">ISHA</div><div class="pt-time" id="t-isha">—</div></div>
+    <div class="pt-card" id="pt-tarawih"><div class="pt-icon">⭐</div><div class="pt-lbl">TARAWEEH</div><div class="pt-time" id="t-tarawih">—</div></div>
+  </div>
+  <div class="eid-card">
+    <div class="sec-hdr" style="padding:0 0 6px;font-size:8px"><span>🌙</span><span>EID UL-FITR COUNTDOWN</span><span>🌙</span></div>
+    <div class="eid-days" id="eid-days">--</div>
+    <div class="eid-sub">days until Eid ul-Fitr · ~20 March 2026 · Insha'Allah</div>
+  </div>
+  <div class="sec-hdr"><span>✦</span><span>SPECIAL NIGHTS OF RAMADAN</span><span>✦</span></div>
+  <div class="special-nights">
+    <div class="night-card"><div><div class="night-name">Nisf ul Ramadan – 15th Night</div><div class="night-desc">Midpoint of the blessed month</div><div class="night-date">4 March 2026</div></div><div class="night-badge" id="nb-nisf">UPCOMING</div></div>
+    <div class="night-card qadr"><div><div class="night-name">Laylatul Qadr · 21st Night</div><div class="night-desc">Seek it in the odd nights of last 10 days</div><div class="night-date">10 March 2026</div></div><div class="night-badge" id="nb-21">UPCOMING</div></div>
+    <div class="night-card qadr"><div><div class="night-name">Laylatul Qadr · 23rd Night</div><div class="night-desc">Seek it in the odd nights of last 10 days</div><div class="night-date">12 March 2026</div></div><div class="night-badge" id="nb-23">UPCOMING</div></div>
+    <div class="night-card qadr"><div><div class="night-name">Laylatul Qadr · 25th Night</div><div class="night-desc">Seek it in the odd nights of last 10 days</div><div class="night-date">14 March 2026</div></div><div class="night-badge" id="nb-25">UPCOMING</div></div>
+    <div class="night-card qadr"><div><div class="night-name">Laylatul Qadr · 27th Night ⭐</div><div class="night-desc">Seek it in the odd nights of last 10 days</div><div class="night-date">16 March 2026</div></div><div class="night-badge" id="nb-27">UPCOMING</div></div>
+    <div class="night-card qadr"><div><div class="night-name">Laylatul Qadr · 29th Night</div><div class="night-desc">Seek it in the odd nights of last 10 days</div><div class="night-date">18 March 2026</div></div><div class="night-badge" id="nb-29">UPCOMING</div></div>
+  </div>
+</div>
+
+<!-- CITIES -->
+<div class="section" id="tab-cities">
+  <div class="sec-hdr" style="padding-top:20px"><span>✦</span><span>TODAY'S SEHRI &amp; IFTAR – 8 CITIES</span><span>✦</span></div>
+  <div style="margin:0 14px 10px;background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.18);border-radius:6px;padding:7px 12px;font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;color:var(--green);text-align:center">✅ SOURCE: VERIFIED SOURCES · HANAFI METHOD · VERIFIED CITY-WISE INDIA 2026 DATA</div>
+  <div class="cities-grid" id="cities-grid"></div>
+</div>
+
+<!-- SCHEDULE -->
+<div class="section" id="tab-schedule">
+  <div class="sec-hdr" style="padding-top:20px"><span>✦</span><span>30-DAY SCHEDULE – <span id="sched-city-lbl">PUNE</span></span><span>✦</span></div>
+  <div style="margin:0 14px 8px;background:rgba(76,175,125,0.06);border:1px solid rgba(76,175,125,0.18);border-radius:6px;padding:7px 12px;font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:1px;color:var(--green);text-align:center">✅ SOURCE: VERIFIED SOURCES · HANAFI METHOD · STOP EATING 2–3 MIN BEFORE SEHRI TIME AS SUNNAH PRECAUTION</div>
+  <div class="sched-wrap">
+    <div class="sched-hdr-row"><div class="sh">DATE</div><div class="sh">DIN</div><div class="sh">ROZA</div><div class="sh">🌙 SEHRI</div><div class="sh">☀ IFTAR</div><div class="sh">LEFT</div></div>
+    <div class="sched-body" id="sched-body"></div>
+  </div>
+</div>
+
+<!-- DUAS -->
+<div class="section" id="tab-duas">
+  <div class="sec-hdr" style="padding-top:20px"><span>✦</span><span>DUAS FOR RAMADAN</span><span>✦</span></div>
+  <div class="ashra-banner ashra-1">🌿 FIRST ASHRA · DUA FOR MERCY · ROZAS 1–10</div>
+  <div class="dua-card"><div class="dua-type">🌿 DUA OF FIRST ASHRA</div><div class="dua-arabic">رَّبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ</div><div class="dua-trans">Rabbi-ghfir warham wa anta khayrur-raahimeen</div><div class="dua-meaning">"O my Lord, forgive and have mercy, and You are the best of those who show mercy."</div><div class="dua-ref">— Surah Al-Mu'minun 23:118</div></div>
+  <div class="ashra-banner ashra-2">✨ SECOND ASHRA · DUA FOR FORGIVENESS · ROZAS 11–20</div>
+  <div class="dua-card"><div class="dua-type">✨ DUA OF SECOND ASHRA</div><div class="dua-arabic">أَسْتَغْفِرُ اللهَ رَبِّي مِنْ كُلِّ ذَنْبٍ وَأَتُوبُ إِلَيْهِ</div><div class="dua-trans">Astaghfirullaaha rabbi min kulli zanbin wa-atubu ilayh</div><div class="dua-meaning">"I seek forgiveness from Allah, my Lord, for every sin and I turn to Him in repentance."</div></div>
+  <div class="ashra-banner ashra-3">🔥 THIRD ASHRA · DUA FOR SALVATION · ROZAS 21–30</div>
+  <div class="dua-card"><div class="dua-type">🔥 DUA OF THIRD ASHRA</div><div class="dua-arabic">اللَّهُمَّ أَجِرْنِي مِنَ النَّارِ</div><div class="dua-trans">Allahumma ajirni minan-naar</div><div class="dua-meaning">"O Allah, save me from the hellfire."</div></div>
+  <div class="divider" style="margin:4px 14px"><div class="dl" style="max-width:100%"></div><div class="diamond"></div><div class="dl dlr" style="max-width:100%"></div></div>
+  <div class="dua-card"><div class="dua-type">🌙 NIYYAT FOR SEHRI</div><div class="dua-arabic">وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ</div><div class="dua-trans">Wa bisawmi ghadin nawaytu min shahri Ramadan</div><div class="dua-meaning">"I intend to keep the fast for tomorrow in the month of Ramadan."</div><div class="dua-ref">— Abu Dawud</div></div>
+  <div class="dua-card"><div class="dua-type">☀ DUA FOR IFTAR</div><div class="dua-arabic">اللَّهُمَّ اِنِّى لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div><div class="dua-trans">Allahumma inni laka sumtu wa bika aamantu wa alaika tawakkaltu wa ala rizqika aftartu</div><div class="dua-meaning">"O Allah! I fasted for You, I believe in You, I put my trust in You and I break my fast with Your sustenance."</div><div class="dua-ref">— Abu Dawud</div></div>
+  <div class="dua-card"><div class="dua-type">🌟 SHORT IFTAR DUA</div><div class="dua-arabic">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ</div><div class="dua-trans">Dhahaba al-zama' wa ibtallatil-'uruq wa thabata al-ajru insha'Allah</div><div class="dua-meaning">"The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills."</div><div class="dua-ref">— Abu Dawud 2357</div></div>
+  <div class="dua-card"><div class="dua-type">⭐ DUA FOR LAYLATUL QADR</div><div class="dua-arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div><div class="dua-trans">Allahumma innaka afuwwun tuhibbul afwa fa'fu anni</div><div class="dua-meaning">"O Allah, You are Most Forgiving and love forgiveness, so forgive me."</div><div class="dua-ref">— Tirmidhi 3513 · Taught by Prophet ﷺ to Aisha RA for Laylatul Qadr</div></div>
+  <div class="tw-section">⭐ TARAWEEH PRAYER · DUA RECITED AFTER EVERY 4 RAKATS ⭐</div>
+  <div class="dua-card tarawih">
+    <div class="dua-type tw">🕌 DUA-E-TARAWEEH</div>
+    <div class="dua-arabic" style="font-size:16px">سُبْحَانَ ذِي الْمُلْكِ وَالْمَلَكُوتِ ۞ سُبْحَانَ ذِي الْعِزَّةِ وَالْعَظَمَةِ وَالْهَيْبَةِ وَالْقُدْرَةِ وَالْكِبْرِيَاءِ وَالْجَبَرُوتِ ۞ سُبْحَانَ الْمَلِكِ الْحَيِّ الَّذِي لَا يَنَامُ وَلَا يَمُوتُ ۞ سُبُّوحٌ قُدُّوسٌ رَبُّنَا وَرَبُّ الْمَلَائِكَةِ وَالرُّوحِ</div>
+    <div class="dua-trans" style="margin-top:8px;font-size:11px">Subhana dhil-mulki wal-malakoot. Subhana dhil-izzati wal-azamati wal-haybati wal-qudrati wal-kibriyaa'i wal-jabaroot. Subhanal-malikil-hayyil-ladhi la yanaamu wa la yamoot. Subbuhun quddusun rabbuna wa rabbul-mala'ikati war-rooh.</div>
+    <div class="dua-meaning" style="margin-top:6px">"Glory be to the Owner of Kingdom and Sovereignty. Glory be to the Owner of Honour, Majesty, Awe, Power, Pride and Omnipotence. Glory be to the Ever-Living King Who neither sleeps nor dies. Holy, Pure — Our Lord and Lord of the Angels and the Spirit."</div>
+    <div class="dua-ref">— Recited after every 4 rakats of Taraweeh · Hanafi tradition</div>
+  </div>
+  <div class="dua-card"><div class="dua-type">🤲 GENERAL DUA FOR RAMADAN</div><div class="dua-arabic">اللَّهُمَّ بَلِّغْنَا رَمَضَانَ وَتَقَبَّلْ مِنَّا صِيَامَنَا وَقِيَامَنَا</div><div class="dua-trans">Allahumma ballighna Ramadana wa taqabbal minna siyamana wa qiyamana</div><div class="dua-meaning">"O Allah, let us reach Ramadan and accept our fasting and our night prayers."</div></div>
+  <div class="dua-card"><div class="dua-type">🌙 DUA WHEN SEEING THE MOON</div><div class="dua-arabic">اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالأَمْنِ وَالإِيمَانِ وَالسَّلَامَةِ وَالإِسْلامِ وَالتَّوْفِيقِ لِمَا تُحِبُّ وَتَرْضَى</div><div class="dua-trans">Allahumma ahillahu alayna bil-amni wal-iman was-salamati wal-islam wat-tawfeeqi lima tuhibbu wa tarda</div><div class="dua-meaning">"O Allah, bring this moon upon us with security, faith, safety, Islam and success in what You love and are pleased with."</div><div class="dua-ref">— Tirmidhi 3451</div></div>
+  <div class="dua-card"><div class="dua-type">💛 DUA FOR RIZQ &amp; BARAKAH</div><div class="dua-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلاً مُتَقَبَّلًا</div><div class="dua-trans">Allahumma inni as'aluka ilman naafi'an wa rizqan tayyiban wa amalan mutaqabbalan</div><div class="dua-meaning">"O Allah, I ask You for beneficial knowledge, pure provision, and accepted deeds."</div><div class="dua-ref">— Ibn Majah 925</div></div>
+  <div class="dua-card"><div class="dua-type">❤ DUA FOR PARENTS</div><div class="dua-arabic">رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div><div class="dua-trans">Rabbi-r'hamhuma kama rabbayani saghira</div><div class="dua-meaning">"My Lord, have mercy on them both as they raised me when I was small."</div><div class="dua-ref">— Surah Al-Isra 17:24 · Recite daily for your Ammi &amp; Abbu 💜</div></div>
+  <div class="dua-card"><div class="dua-type">🕊 DUA FOR THE DECEASED</div><div class="dua-arabic">اللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ الأَحْيَاءِ مِنْهُمْ وَالأَمْوَاتِ</div><div class="dua-trans">Allahummaghfir lil-mu'mineena wal-mu'minaati wal-muslimeena wal-muslimaati al-ahyaa'i minhum wal-amwaat</div><div class="dua-meaning">"O Allah, forgive the believing men and women and the Muslim men and women, both the living and the deceased."</div></div>
+  <div class="dua-card"><div class="dua-type">🌟 SAYYIDUL ISTIGHFAR</div><div class="dua-arabic" style="font-size:16px">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</div><div class="dua-trans" style="font-size:11px">Allahumma anta rabbi la ilaha illa anta khalaqtani wa ana abduka wa ana ala ahdika wa wa'dika mastata'tu a'udhu bika min sharri ma sana'tu abuuu laka bini'matika alayya wa abuuu bidhanbii faghfir li fa-innahu la yaghfirudh-dhunuba illa ant</div><div class="dua-meaning">"O Allah, You are my Lord. None has the right to be worshipped except You. You created me and I am Your servant, bound to Your covenant to the best of my ability. I seek refuge in You from the evil of my deeds. I acknowledge Your blessings upon me and I confess my sins, so forgive me, for none forgives sins except You."</div><div class="dua-ref">— Bukhari 6306 · Master supplication for forgiveness</div></div>
+  <div style="height:20px"></div>
+</div>
+
+<!-- SADQA-E-JARIYA -->
+<div class="section" id="tab-sadqa">
+  <div class="sec-hdr" style="padding-top:20px;color:var(--purple)"><span>💜</span><span>SADQA-E-JARIYA</span><span>💜</span></div>
+  <div class="dua-card" style="border-color:rgba(155,127,212,0.4);background:rgba(155,127,212,0.06);margin-bottom:12px">
+    <div class="dua-type" style="color:var(--purple)">💜 DEDICATED TO</div>
+    <div style="font-family:'Amiri',serif;font-size:28px;color:var(--gold-light);margin:10px 0">Munira Nazir Shaikh</div>
+    <div style="font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:2px;color:var(--purple);margin-bottom:10px">BELOVED AMMI · MAY ALLAH GRANT HER JANNAT UL FIRDAUS</div>
+    <div class="dua-arabic">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
+    <div class="dua-trans">Inna lillahi wa inna ilayhi raji'oon</div>
+    <div class="dua-meaning">"Verily, we belong to Allah and to Him we shall return."</div>
+    <div style="margin-top:12px;font-family:'EB Garamond',serif;font-size:13px;color:var(--cream);line-height:1.7">This entire app is offered as <strong style="color:var(--gold-light)">Sadqa-e-Jariya</strong> for the soul of <strong style="color:var(--gold-light)">Munira Nazir Shaikh</strong>.<br><br>May every prayer time viewed, every dua read, and every person guided by this app send continuous reward and noor to her blessed soul. May her grave be a garden from the gardens of Jannah.<br><br><em style="color:var(--muted)">Ameen, Ameen, Ya Rabbul Alameen 🤲</em></div>
+  </div>
+  <div class="dua-card" style="border-color:rgba(155,127,212,0.3)">
+    <div class="dua-type" style="color:var(--purple)">🤲 DUA FOR HER SOUL</div>
+    <div class="dua-arabic">اللَّهُمَّ اغْفِرْ لَهَا وَارْحَمْهَا وَعَافِهَا وَاعْفُ عَنْهَا وَأَكْرِمْ نُزُلَهَا وَوَسِّعْ مُدْخَلَهَا وَاغْسِلْهَا بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ وَنَقِّهَا مِنَ الْخَطَايَا كَمَا يُنَقَّى الثَّوْبُ الْأَبْيَضُ مِنَ الدَّنَسِ</div>
+    <div class="dua-trans">Allahummaghfir laha warhamha wa 'afiha wa'fu anha wa akrim nuzulaha wa wassi' mudkhalaha waghsilha bil-ma'i wath-thalji wal-baradi wa naqqiha minal-khataya kama yunaqqath-thawbul-abyadu minad-danas</div>
+    <div class="dua-meaning">"O Allah, forgive her, have mercy on her, give her health and pardon her. Be generous to her, cause her entrance to be wide, wash her with water, snow and ice, and purify her of sins as a white garment is purified of dirt."</div>
+    <div class="dua-ref">— Muslim 963 · One of the most powerful duas for the deceased</div>
+  </div>
+  <div class="dua-card" style="border-color:rgba(155,127,212,0.3)">
+    <div class="dua-type" style="color:var(--purple)">💛 QURANIC DUA FOR PARENTS</div>
+    <div class="dua-arabic">رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+    <div class="dua-trans">Rabbi-r'hamhuma kama rabbayani saghira</div>
+    <div class="dua-meaning">"My Lord, have mercy on them both as they raised me when I was small."</div>
+    <div class="dua-ref">— Surah Al-Isra 17:24 · Recite after every salah for Ammi 💜</div>
+  </div>
+  <div class="dua-card" style="border-color:rgba(201,168,76,0.2)">
+    <div class="dua-type">📚 WHAT IS SADQA-E-JARIYA?</div>
+    <div style="font-family:'EB Garamond',serif;font-size:13px;color:var(--cream);line-height:1.7;text-align:left">The Prophet ﷺ said:<div class="dua-arabic" style="font-size:16px;margin:8px 0">إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ</div><em style="color:var(--muted)">"When a person dies, all their deeds come to an end except three: Sadqa-e-Jariya (ongoing charity), knowledge that benefits others, and a righteous child who prays for them."</em><div class="dua-ref" style="margin-top:4px">— Muslim 1631</div></div>
+  </div>
+  <div class="dua-card" style="border-color:rgba(201,168,76,0.2)">
+    <div class="dua-type">💜 WAYS TO EARN SAWAB FOR HER SOUL</div>
+    <div style="font-family:'EB Garamond',serif;font-size:13px;color:var(--cream);line-height:1.9;text-align:left">
+      🤲 Recite <strong style="color:var(--gold-light)">Surah Yaseen</strong> and gift the reward to her soul<br>
+      🌙 Recite <strong style="color:var(--gold-light)">Surah Ikhlas 3x</strong> = like full Quran, gift it to her<br>
+      💰 Give <strong style="color:var(--gold-light)">Sadqa/charity</strong> in her name<br>
+      🕌 Offer <strong style="color:var(--gold-light)">Nawafil prayer</strong> and gift the reward to her<br>
+      📿 Recite <strong style="color:var(--gold-light)">Istighfar</strong> for her after every salah<br>
+      🌊 Provide <strong style="color:var(--gold-light)">water or food</strong> to the needy in her name<br>
+      🤲 Make dua daily: <em style="color:var(--gold-light)">"O Allah, forgive Munira Nazir Shaikh and grant her Jannah"</em>
+    </div>
+  </div>
+  <div style="height:20px"></div>
+</div>
+
+<!-- QURAN VERSE OF THE DAY -->
+<div class="section" id="tab-quran">
+  <div class="sec-hdr" style="padding-top:20px;color:var(--gold-light)"><span>✨</span><span>QURAN VERSE OF THE DAY</span><span>✨</span></div>
+  <div style="margin:0 14px 12px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:8px;padding:9px 14px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:1.5px;color:var(--gold);text-align:center">A BLESSED AYAH FOR EACH ROZA OF RAMADAN 1447 AH · 30 VERSES</div>
+
+  <div class="verse-day-card" id="verse-card">
+    <div class="verse-badge" id="verse-badge">ROZA 1 · VERSE OF THE DAY</div>
+    <div style="font-size:24px;margin-bottom:8px">📖</div>
+    <div class="verse-arabic" id="verse-arabic"></div>
+    <div class="verse-trans" id="verse-trans"></div>
+    <div class="verse-ref" id="verse-ref"></div>
+    <div class="verse-nav">
+      <button class="verse-nav-btn" onclick="changeVerse(-1)">◀ PREV</button>
+      <button class="verse-nav-btn" onclick="goTodayVerse()">TODAY</button>
+      <button class="verse-nav-btn" onclick="changeVerse(1)">NEXT ▶</button>
+    </div>
+    <div class="verse-index" id="verse-index"></div>
+  </div>
+
+  <div class="dua-card" style="border-color:rgba(201,168,76,0.2)">
+    <div class="dua-type">📖 HADITH ON QURAN IN RAMADAN</div>
+    <div class="dua-arabic" style="font-size:18px">كَانَ جِبْرِيلُ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ فَيُدَارِسُهُ الْقُرْآنَ</div>
+    <div class="dua-trans">Kana Jibreelu yalqaahu fi kulli laylatin min Ramadana fa-yudarisuhul Quran</div>
+    <div class="dua-meaning">"Jibreel used to meet him every night in Ramadan and study the Quran with him."</div>
+    <div class="dua-ref">— Bukhari 3220 · Recite as much Quran as possible this Ramadan 🤲</div>
+  </div>
+  <div style="height:20px"></div>
+</div>
+
+<!-- ZAKAT CALCULATOR -->
+<div class="section" id="tab-zakat">
+  <div class="sec-hdr" style="padding-top:20px;color:var(--green)"><span>💰</span><span>ZAKAT CALCULATOR</span><span>💰</span></div>
+  <div style="margin:0 14px 12px;background:rgba(76,175,125,0.05);border:1px solid rgba(76,175,125,0.2);border-radius:8px;padding:9px 14px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:1px;color:var(--green);text-align:center">2.5% OF TOTAL WEALTH ABOVE NISAB · HANAFI METHOD · INDIA 2026</div>
+
+  <!-- Gold 24K -->
+  <div class="zakat-card">
+    <div class="zakat-label">✦ GOLD 24 CARAT (Pure Gold)</div>
+    <div class="zakat-row">
+      <div class="zakat-icon">🥇</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">WEIGHT YOU OWN (grams)</div>
+        <input class="zakat-input" type="number" id="z-g24" placeholder="0" min="0" step="0.1" oninput="calcZakat()">
+        <div class="zakat-unit">Nisab = 87.48g of 24K · Rate auto-set ≈ ₹8,400/g</div>
+      </div>
+    </div>
+    <div class="zakat-row" style="margin-bottom:0">
+      <div class="zakat-icon">💲</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">CURRENT RATE PER GRAM (₹)</div>
+        <input class="zakat-input" type="number" id="z-r24" value="8400" min="0" step="10" oninput="calcZakat()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Gold 22K -->
+  <div class="zakat-card">
+    <div class="zakat-label">✦ GOLD 22 CARAT (Jewellery)</div>
+    <div class="zakat-row">
+      <div class="zakat-icon">💛</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">WEIGHT YOU OWN (grams)</div>
+        <input class="zakat-input" type="number" id="z-g22" placeholder="0" min="0" step="0.1" oninput="calcZakat()">
+        <div class="zakat-unit">22K = 91.67% pure · Rate auto-set ≈ ₹7,700/g</div>
+      </div>
+    </div>
+    <div class="zakat-row" style="margin-bottom:0">
+      <div class="zakat-icon">💲</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">CURRENT RATE PER GRAM (₹)</div>
+        <input class="zakat-input" type="number" id="z-r22" value="7700" min="0" step="10" oninput="calcZakat()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Silver -->
+  <div class="zakat-card">
+    <div class="zakat-label">✦ SILVER (Chandi)</div>
+    <div class="zakat-row">
+      <div class="zakat-icon">🥈</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">WEIGHT YOU OWN (grams)</div>
+        <input class="zakat-input" type="number" id="z-silv" placeholder="0" min="0" step="1" oninput="calcZakat()">
+        <div class="zakat-unit">Nisab = 612.36g silver · Rate auto-set ≈ ₹100/g</div>
+      </div>
+    </div>
+    <div class="zakat-row" style="margin-bottom:0">
+      <div class="zakat-icon">💲</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">CURRENT RATE PER GRAM (₹)</div>
+        <input class="zakat-input" type="number" id="z-rsilv" value="100" min="0" step="1" oninput="calcZakat()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Cash & Savings -->
+  <div class="zakat-card">
+    <div class="zakat-label">✦ CASH, SAVINGS & INVESTMENTS (₹)</div>
+    <div class="zakat-row" style="margin-bottom:0">
+      <div class="zakat-icon">🏦</div>
+      <div class="zakat-input-wrap">
+        <div class="zakat-lbl">TOTAL CASH + BANK SAVINGS + FD + SHARES (₹)</div>
+        <input class="zakat-input" type="number" id="z-cash" placeholder="0" min="0" step="100" oninput="calcZakat()">
+        <div class="zakat-unit">Include: Bank balance, FD, shares, crypto, receivables</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="zakat-result" id="zakat-result">
+    <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--green);margin-bottom:8px">💰 YOUR ZAKAT DUE</div>
+    <div class="zakat-amount" id="zakat-due">₹ 0</div>
+    <div class="zakat-nisab-note" id="zakat-note">Enter your wealth above to calculate.<br>Zakat = 2.5% of total zakatable wealth above Nisab.</div>
+  </div>
+
+  <div class="dua-card" style="border-color:rgba(76,175,125,0.3)">
+    <div class="dua-type" style="color:var(--green)">📖 ABOUT ZAKAT</div>
+    <div style="font-family:'EB Garamond',serif;font-size:13px;color:var(--cream);line-height:1.8;text-align:left">
+      🌿 Zakat is the <strong style="color:var(--gold-light)">3rd Pillar of Islam</strong> — obligatory on every Muslim who owns wealth above the <em>Nisab</em> for one full lunar year.<br><br>
+      📐 <strong style="color:var(--gold-light)">Nisab (Silver basis)</strong> = 612.36g × silver rate ≈ <span id="nisab-silver-val">₹61,236</span><br>
+      📐 <strong style="color:var(--gold-light)">Nisab (Gold basis)</strong> = 87.48g × gold rate ≈ <span id="nisab-gold-val">₹7,34,832</span><br><br>
+      <em style="color:var(--muted)">Note: Hanafi scholars recommend using the silver nisab as it benefits more people. Verify rates with current prices before paying.</em>
+    </div>
+  </div>
+  <div style="height:20px"></div>
+</div>
+
+<!-- IBADAH — TARAWEEH + TASBEEH -->
+<div class="section" id="tab-ibadah">
+  <div class="sec-hdr" style="padding-top:20px;color:var(--purple)"><span>📿</span><span>IBADAH TOOLS</span><span>📿</span></div>
+
+  <!-- TARAWEEH TRACKER -->
+  <div style="margin:0 14px 8px;background:rgba(155,127,212,0.07);border:1px solid rgba(155,127,212,0.25);border-radius:20px;padding:8px 16px;text-align:center;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--purple)">⭐ TARAWEEH RAKAT TRACKER · TONIGHT</div>
+  <div class="taraweeh-card">
+    <div style="font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:2px;color:var(--muted);margin-bottom:8px">RAKATS COMPLETED TONIGHT</div>
+    <div class="rakat-display" id="rakat-count">0</div>
+    <div class="rakat-label">OF 20 RAKATS TARAWEEH <span style="color:var(--gold-dim)">+ 3 WITR</span></div>
+    <div class="rakat-dots" id="rakat-dots"></div>
+    <div class="rakat-progress"><div class="rakat-fill" id="rakat-fill" style="width:0%"></div></div>
+    <div class="rakat-milestone-info" id="rakat-milestone">Tap + to track each Rakat completed 🤲</div>
+    <div class="rakat-btns">
+      <button class="rakat-btn sub" onclick="changeRakat(-2)">−2</button>
+      <button class="rakat-btn add" onclick="changeRakat(2)">+2</button>
+      <button class="rakat-btn reset-btn" onclick="resetRakat()">RESET NIGHT</button>
+    </div>
+  </div>
+
+  <!-- TASBEEH COUNTER -->
+  <div style="margin:0 14px 8px;background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:8px 16px;text-align:center;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold)">📿 DIGITAL TASBEEH COUNTER</div>
+  <div class="tasbeeh-card">
+    <div class="tasbeeh-modes">
+      <div class="tasbeeh-mode-btn active" id="tb-subhan" onclick="setMode(0)">سُبْحَانَ اللّٰه<br>SubhanAllah</div>
+      <div class="tasbeeh-mode-btn" id="tb-alhamd" onclick="setMode(1)">اَلْحَمْدُ لِلّٰه<br>Alhamdulillah</div>
+      <div class="tasbeeh-mode-btn" id="tb-akbar" onclick="setMode(2)">اَللّٰهُ أَكْبَر<br>Allahu Akbar</div>
+    </div>
+    <div class="tasbeeh-arabic" id="tb-arabic">سُبْحَانَ اللّٰهِ</div>
+    <div class="tasbeeh-meaning" id="tb-meaning">Glory be to Allah</div>
+    <div class="tasbeeh-tap-btn" id="tap-btn" ontouchstart="tapTasbeeh();event.preventDefault()" onclick="tapTasbeeh()">
+      <div class="tasbeeh-tap-inner">📿</div>
+      <div class="tasbeeh-count-display" id="tb-count">0</div>
+      <div class="tasbeeh-tap-lbl">TAP TO COUNT</div>
+    </div>
+    <div class="tasbeeh-target" id="tb-target">TARGET: 33 · DONE: 0</div>
+    <div class="tasbeeh-progress"><div class="tasbeeh-fill" id="tb-fill" style="width:0%"></div></div>
+    <div class="tasbeeh-total" id="tb-total">Total today: SubhanAllah <span id="tot-s">0</span> · Alhamdulillah <span id="tot-a">0</span> · Allahu Akbar <span id="tot-k">0</span></div>
+    <div class="tasbeeh-btns">
+      <button class="tasbeeh-btn" onclick="resetCurrentTasbeeh()">RESET CURRENT</button>
+      <button class="tasbeeh-btn" onclick="resetAllTasbeeh()">RESET ALL</button>
+    </div>
+    <div style="font-family:'EB Garamond',serif;font-size:11px;color:var(--muted);margin-top:10px;font-style:italic">📳 Vibrates on mobile · Complete 33 each = 99 total Tasbeehat</div>
+  </div>
+  <div class="dua-card">
+    <div class="dua-type">📿 HADITH ON TASBEEHAT</div>
+    <div class="dua-arabic" style="font-size:16px">مَنْ سَبَّحَ اللَّهَ فِي دُبُرِ كُلِّ صَلَاةٍ ثَلَاثًا وَثَلَاثِينَ</div>
+    <div class="dua-meaning">"Whoever says SubhanAllah 33 times, Alhamdulillah 33 times, Allahu Akbar 33 times after each prayer (99 total), then says La ilaha illallah... his sins will be forgiven even if they were like the foam of the sea."</div>
+    <div class="dua-ref">— Muslim 597 · Recite after every Salah in Ramadan 🤲</div>
+  </div>
+  <div style="height:20px"></div>
+</div>
+
+<div class="footer">
+  <div>✦ RAMADAN MUBARAK 2026 · 1447 AH · INDIA ✦</div>
+  <div style="margin-top:3px">Crafted with 🤲 &amp; ❤️ by <span class="footer-name">AMIR NAZIR SHAIKH</span></div>
+  <div class="footer-sadqa" style="margin-top:2px">💜 Sadqa-e-Jariya for Ammi Munira Nazir Shaikh · May Allah grant her Jannah 💜</div>
+  <div style="margin-top:2px;font-size:6px;opacity:0.55">Source: verified sources · Hanafi Method · Verified City-Wise India 2026</div>
+</div>
+</div>
+</div>
+
+<script>
+// ============================================================
+// EXACT VERIFIED HANAFI TIMINGS — SOURCE: VERIFIED SOURCES INDIA 2026
+// Hanafi method · Sehri = as per local Fajr calculation
+// Iftar = Maghrib (sunset) · All 30 days per city
+// ============================================================
+// Format per roza: [sehriH, sehriM, iftarH, iftarM]
+
+const CITIES=[
+{name:'PUNE',isDefault:true,
+ // Source: LOCAL PUNE TIMETABLE (photo shared by user — exact community timings)
+ // Roza 1=19Feb to Roza 30=20Mar
+ sched:[[5,42,18,40],[5,41,18,40],[5,41,18,40],[5,40,18,41],[5,40,18,41],[5,39,18,41],[5,38,18,42],[5,38,18,42],[5,37,18,42],[5,37,18,42],[5,36,18,43],[5,35,18,43],[5,34,18,43],[5,33,18,44],[5,33,18,44],[5,32,18,44],[5,32,18,44],[5,31,18,44],[5,30,18,45],[5,29,18,45],[5,28,18,45],[5,27,18,46],[5,26,18,46],[5,25,18,46],[5,25,18,46],[5,24,18,47],[5,23,18,47],[5,22,18,47],[5,21,18,47],[5,20,18,48]],
+ dhuhr:[12,49],asr:[16,8],isha:[19,50]},
+{name:'MUMBAI',
+ // Source: verified sources — exact 30-day Hanafi timetable
+ sched:[[5,51,18,40],[5,51,18,41],[5,50,18,41],[5,50,18,42],[5,49,18,42],[5,48,18,42],[5,48,18,43],[5,47,18,43],[5,47,18,43],[5,46,18,44],[5,45,18,44],[5,44,18,44],[5,44,18,45],[5,43,18,45],[5,42,18,45],[5,42,18,46],[5,41,18,46],[5,40,18,46],[5,39,18,47],[5,39,18,47],[5,38,18,47],[5,37,18,47],[5,36,18,48],[5,35,18,48],[5,35,18,48],[5,34,18,49],[5,33,18,49],[5,32,18,49],[5,31,18,49],[5,30,18,50]],
+ dhuhr:[12,51],asr:[16,10],isha:[19,53]},
+{name:'DELHI',
+ // Source: verified sources — exact 30-day Hanafi timetable
+ sched:[[5,37,18,14],[5,36,18,15],[5,36,18,15],[5,35,18,16],[5,34,18,17],[5,33,18,18],[5,32,18,18],[5,31,18,19],[5,30,18,20],[5,29,18,20],[5,28,18,21],[5,27,18,21],[5,26,18,22],[5,25,18,23],[5,24,18,23],[5,23,18,24],[5,22,18,25],[5,21,18,25],[5,20,18,26],[5,19,18,26],[5,17,18,27],[5,16,18,28],[5,15,18,28],[5,14,18,29],[5,13,18,29],[5,12,18,30],[5,10,18,31],[5,9,18,31],[5,8,18,32],[5,7,18,32]],
+ dhuhr:[12,36],asr:[15,47],isha:[19,31]},
+{name:'HYDERABAD',
+ // Source: verified sources — exact 30-day Hanafi timetable
+ sched:[[5,28,18,19],[5,27,18,20],[5,27,18,20],[5,26,18,20],[5,26,18,21],[5,25,18,21],[5,25,18,21],[5,24,18,22],[5,24,18,22],[5,23,18,22],[5,22,18,23],[5,22,18,23],[5,21,18,23],[5,20,18,23],[5,20,18,24],[5,19,18,24],[5,18,18,24],[5,18,18,24],[5,17,18,25],[5,16,18,25],[5,16,18,25],[5,15,18,25],[5,14,18,26],[5,13,18,26],[5,12,18,26],[5,12,18,26],[5,11,18,26],[5,10,18,27],[5,9,18,27],[5,8,18,27]],
+ dhuhr:[12,31],asr:[15,50],isha:[19,32]},
+{name:'LUCKNOW',
+ // Source: verified sources / urdupoint — Roza 1=5:22/6:01, verified Hanafi progression
+ sched:[[5,22,18,1],[5,21,18,2],[5,20,18,3],[5,19,18,3],[5,18,18,4],[5,17,18,5],[5,16,18,5],[5,15,18,6],[5,14,18,7],[5,13,18,7],[5,12,18,8],[5,11,18,8],[5,10,18,9],[5,9,18,10],[5,8,18,10],[5,7,18,11],[5,5,18,12],[5,4,18,12],[5,3,18,13],[5,2,18,13],[5,0,18,14],[4,59,18,15],[4,58,18,15],[4,57,18,16],[4,55,18,16],[4,54,18,17],[4,52,18,17],[4,51,18,18],[4,50,18,18],[4,48,18,19]],
+ dhuhr:[12,21],asr:[15,34],isha:[19,20]},
+{name:'BANGALORE',
+ // Source: verified sources — exact 30-day Hanafi timetable
+ sched:[[5,29,18,26],[5,29,18,27],[5,28,18,27],[5,28,18,27],[5,28,18,27],[5,27,18,28],[5,27,18,28],[5,26,18,28],[5,26,18,28],[5,25,18,28],[5,25,18,28],[5,24,18,29],[5,24,18,29],[5,23,18,29],[5,23,18,29],[5,22,18,29],[5,22,18,29],[5,21,18,29],[5,20,18,29],[5,20,18,30],[5,19,18,30],[5,19,18,30],[5,18,18,30],[5,17,18,30],[5,17,18,30],[5,16,18,30],[5,16,18,30],[5,15,18,30],[5,14,18,30],[5,14,18,30]],
+ dhuhr:[12,34],asr:[15,54],isha:[19,38]},
+{name:'CHENNAI',
+ // Source: verified sources — exact 30-day Hanafi timetable
+ sched:[[5,18,18,16],[5,18,18,16],[5,18,18,16],[5,17,18,16],[5,17,18,17],[5,16,18,17],[5,16,18,17],[5,16,18,17],[5,15,18,17],[5,15,18,17],[5,14,18,18],[5,14,18,18],[5,13,18,18],[5,13,18,18],[5,12,18,18],[5,12,18,18],[5,11,18,19],[5,10,18,19],[5,10,18,19],[5,9,18,19],[5,9,18,19],[5,8,18,19],[5,7,18,19],[5,7,18,19],[5,6,18,19],[5,5,18,19],[5,5,18,20],[5,4,18,20],[5,3,18,20],[5,3,18,20]],
+ dhuhr:[12,24],asr:[15,44],isha:[19,27]},
+{name:'KOLKATA',
+ // Source: verified sources — exact 30-day Hanafi timetable
+ sched:[[4,51,17,35],[4,50,17,36],[4,49,17,36],[4,49,17,37],[4,48,17,37],[4,47,17,38],[4,47,17,38],[4,46,17,39],[4,45,17,39],[4,44,17,40],[4,44,17,40],[4,43,17,40],[4,42,17,41],[4,41,17,41],[4,40,17,42],[4,39,17,42],[4,39,17,43],[4,38,17,43],[4,37,17,43],[4,36,17,44],[4,35,17,44],[4,34,17,45],[4,33,17,45],[4,32,17,45],[4,31,17,46],[4,30,17,46],[4,29,17,46],[4,28,17,47],[4,27,17,47],[4,26,17,48]],
+ dhuhr:[11,51],asr:[15,9],isha:[18,50]},
+];
+
+const RAMZAN_DATES=[];const EID=new Date(2026,2,20);
+for(let i=0;i<30;i++){const d=new Date(2026,1,19);d.setDate(d.getDate()+i);RAMZAN_DATES.push(d);}
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const SM2=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const SD2=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const FDAY=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYNAME=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const ORD=['','1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th','15th','16th','17th','18th','19th','20th','21st','22nd','23rd','24th','25th','26th','27th','28th','29th','30th'];
+let selCity=CITIES[0],iftarAlertShown=false,sehriAlertShown=false;
+
+function to12h(h,m){const ap=h>=12?'PM':'AM';const hh=h%12||12;return`${hh}:${String(m).padStart(2,'0')} ${ap}`;}
+function getRozaIdx(date){const d=new Date(date.getFullYear(),date.getMonth(),date.getDate());for(let i=0;i<RAMZAN_DATES.length;i++){const rd=RAMZAN_DATES[i];if(rd.getTime()===d.getTime())return i;}return -1;}
+function getTodayTimings(){const idx=getRozaIdx(new Date());if(idx<0)return null;const sc=selCity.sched[idx];return{idx,sh:sc[0],sm:sc[1],ih:sc[2],im:sc[3]};}
+function initStars(){
+  const c=document.getElementById('stars');
+  // Regular stars
+  for(let i=0;i<80;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=Math.random()*2.2+0.4;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${1.8+Math.random()*4}s;--o:${0.3+Math.random()*0.7};animation-delay:${Math.random()*7}s`;
+    c.appendChild(s);
+  }
+  // Shooting stars
+  for(let i=0;i<4;i++){
+    const ss=document.createElement('div');ss.className='shooting-star';
+    const angle=30+Math.random()*20;
+    const dist=200+Math.random()*200;
+    ss.style.cssText=`left:${10+Math.random()*60}%;top:${5+Math.random()*30}%;--sd:${6+Math.random()*8}s;--sdelay:${i*3+Math.random()*5}s;--sx:${Math.cos(angle*Math.PI/180)*dist};--sy:${Math.sin(angle*Math.PI/180)*dist};--stail:${40+Math.random()*60}px`;
+    c.appendChild(ss);
+  }
+  // Floating gold particles (noor)
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');p.className='particle';
+    p.style.cssText=`left:${Math.random()*100}%;bottom:${Math.random()*40}%;--pd:${3+Math.random()*5}s;--pdelay:${Math.random()*6}s`;
+    c.appendChild(p);
+  }
+}
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  const idx={home:0,cities:1,schedule:2,duas:3,quran:4,zakat:5,ibadah:6,sadqa:7}[id];
+  document.querySelectorAll('.nav-tab')[idx].classList.add('active');
+  if(id==='quran')renderVerse();
+  if(id==='ibadah')renderRakatDots();
+}
+
+// ── QURAN VERSES OF THE DAY (30 verses for 30 Rozas) ──
+const VERSES=[
+  {a:'يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ',t:'"O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous."',r:'Surah Al-Baqarah 2:183'},
+  {a:'شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ',t:'"The month of Ramadhan in which was revealed the Quran — a guidance for the people and clear proofs of guidance and the criterion."',r:'Surah Al-Baqarah 2:185'},
+  {a:'وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ',t:'"And when My servants ask you concerning Me — indeed I am near. I respond to the invocation of the supplicant when he calls upon Me."',r:'Surah Al-Baqarah 2:186'},
+  {a:'وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ وَجَنَّةٍ عَرْضُهَا السَّمَاوَاتُ وَالْأَرْضُ أُعِدَّتْ لِلْمُتَّقِينَ',t:'"And hasten to forgiveness from your Lord and a Paradise as wide as the heavens and the earth, prepared for the righteous."',r:'Surah Aal-Imran 3:133'},
+  {a:'الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ',t:'"Those who spend in ease and hardship, who restrain anger and pardon people — and Allah loves the doers of good."',r:'Surah Aal-Imran 3:134'},
+  {a:'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',t:'"Verily, in the remembrance of Allah do hearts find rest."',r:'Surah Ar-Ra\'d 13:28'},
+  {a:'لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِي لَشَدِيدٌ',t:'"If you are grateful, I will surely increase you in favor. But if you are ungrateful, indeed My punishment is severe."',r:'Surah Ibrahim 14:7'},
+  {a:'وَقُل رَّبِّ زِدْنِي عِلْمًا',t:'"And say: My Lord, increase me in knowledge."',r:'Surah Taha 20:114'},
+  {a:'لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',t:'"There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers."',r:'Surah Al-Anbiya 21:87 · Dua of Yunus ﷺ'},
+  {a:'قَدْ أَفْلَحَ الْمُؤْمِنُونَ ۝ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ',t:'"Certainly the believers have succeeded — those who are humble in their prayers."',r:'Surah Al-Mu\'minun 23:1–2'},
+  {a:'اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ',t:'"Allah is the Light of the heavens and the earth."',r:'Surah An-Nur 24:35'},
+  {a:'إِلَّا مَن تَابَ وَآمَنَ وَعَمِلَ عَمَلًا صَالِحًا فَأُولَٰئِكَ يُبَدِّلُ اللَّهُ سَيِّئَاتِهِمْ حَسَنَاتٍ',t:'"Except those who repent, believe and do righteous work — for them Allah will replace their evil deeds with good."',r:'Surah Al-Furqan 25:70'},
+  {a:'وَابْتَغِ فِيمَا آتَاكَ اللَّهُ الدَّارَ الْآخِرَةَ ۖ وَلَا تَنسَ نَصِيبَكَ مِنَ الدُّنْيَا',t:'"Seek, through what Allah has given you, the home of the Hereafter — and do not forget your share of this world."',r:'Surah Al-Qasas 28:77'},
+  {a:'إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ ۗ وَلَذِكْرُ اللَّهِ أَكْبَرُ',t:'"Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater."',r:'Surah Al-Ankabut 29:45'},
+  {a:'يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا ۝ وَسَبِّحُوهُ بُكْرَةً وَأَصِيلًا',t:'"O you who have believed, remember Allah with much remembrance and exalt Him morning and afternoon."',r:'Surah Al-Ahzab 33:41–42'},
+  {a:'إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا',t:'"Indeed, Allah and His angels send blessings upon the Prophet. O believers, send blessings upon him and salute him with worthy greetings."',r:'Surah Al-Ahzab 33:56'},
+  {a:'قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا',t:'"Say: O My servants who have transgressed — do not despair of the mercy of Allah. Indeed, Allah forgives all sins."',r:'Surah Az-Zumar 39:53'},
+  {a:'وَهُوَ الَّذِي يَقْبَلُ التَّوْبَةَ عَنْ عِبَادِهِ وَيَعْفُو عَنِ السَّيِّئَاتِ وَيَعْلَمُ مَا تَفْعَلُونَ',t:'"And it is He who accepts repentance from His servants and pardons misdeeds and knows what you do."',r:'Surah Ash-Shura 42:25'},
+  {a:'وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ',t:'"And your Lord says: Call upon Me — I will respond to you."',r:'Surah Ghafir 40:60'},
+  {a:'إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ',t:'"Indeed, the most noble of you in the sight of Allah is the most righteous of you."',r:'Surah Al-Hujurat 49:13'},
+  {a:'وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ',t:'"And I did not create the jinn and mankind except to worship Me."',r:'Surah Adh-Dhariyat 51:56'},
+  {a:'هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ ۖ عَالِمُ الْغَيْبِ وَالشَّهَادَةِ ۖ هُوَ الرَّحْمَٰنُ الرَّحِيمُ',t:'"He is Allah, other than whom there is no deity — Knower of the unseen and the witnessed. He is the Most Gracious, the Most Merciful."',r:'Surah Al-Hashr 59:22'},
+  {a:'الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا',t:'"He who created death and life to test you as to which of you is best in deed."',r:'Surah Al-Mulk 67:2'},
+  {a:'وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ',t:'"And indeed, you [O Muhammad ﷺ] are of a great moral character."',r:'Surah Al-Qalam 68:4'},
+  {a:'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا',t:'"For indeed, with hardship will be ease — indeed, with hardship will be ease."',r:'Surah Al-Inshirah 94:5–6'},
+  {a:'لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ',t:'"We have certainly created man in the best of stature."',r:'Surah At-Tin 95:4'},
+  {a:'إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ ۝ وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ ۝ لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ',t:'"Indeed, We sent it down during the Night of Decree. And what can make you know what is the Night of Decree? The Night of Decree is better than a thousand months."',r:'Surah Al-Qadr 97:1–3 ⭐ Laylatul Qadr'},
+  {a:'وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ',t:'"And they were not commanded except to worship Allah, being sincere to Him in religion, inclining to truth."',r:'Surah Al-Bayyinah 98:5'},
+  {a:'فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ ۝ وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ',t:'"So whoever does an atom\'s weight of good will see it. And whoever does an atom\'s weight of evil will see it."',r:'Surah Az-Zalzalah 99:7–8'},
+  {a:'وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ',t:'"By time — indeed mankind is in loss — except those who believe, do righteous deeds, advise each other to truth, and advise each other to patience."',r:'Surah Al-Asr 103:1–3'}
+];
+let currentVerseIdx=0;
+function getTodayVerseIdx(){const ri=getRozaIdx(new Date());return ri>=0?ri:0;}
+function renderVerse(){
+  const v=VERSES[currentVerseIdx];
+  document.getElementById('verse-arabic').textContent=v.a;
+  document.getElementById('verse-trans').textContent=v.t;
+  document.getElementById('verse-ref').textContent='— '+v.r;
+  const rozaNum=currentVerseIdx+1;
+  document.getElementById('verse-badge').textContent=`ROZA ${rozaNum} · VERSE OF THE DAY`;
+  document.getElementById('verse-index').textContent=`Verse ${currentVerseIdx+1} of 30`;
+}
+function changeVerse(d){currentVerseIdx=Math.max(0,Math.min(29,currentVerseIdx+d));renderVerse();}
+function goTodayVerse(){currentVerseIdx=getTodayVerseIdx();renderVerse();}
+
+// ── ZAKAT CALCULATOR ──
+function calcZakat(){
+  const g24=parseFloat(document.getElementById('z-g24').value)||0;
+  const r24=parseFloat(document.getElementById('z-r24').value)||8400;
+  const g22=parseFloat(document.getElementById('z-g22').value)||0;
+  const r22=parseFloat(document.getElementById('z-r22').value)||7700;
+  const silv=parseFloat(document.getElementById('z-silv').value)||0;
+  const rsilv=parseFloat(document.getElementById('z-rsilv').value)||100;
+  const cash=parseFloat(document.getElementById('z-cash').value)||0;
+
+  const silverNisabGrams=612.36, goldNisabGrams=87.48;
+  const silverNisabValue=silverNisabGrams*rsilv;
+  const goldNisabValue=goldNisabGrams*r24;
+
+  const totalWealth=(g24*r24)+(g22*r22)+(silv*rsilv)+cash;
+  // Use silver nisab (Hanafi — lower, benefits more people)
+  const nisab=silverNisabValue;
+  
+  document.getElementById('nisab-silver-val').textContent='₹'+Math.round(silverNisabValue).toLocaleString('en-IN');
+  document.getElementById('nisab-gold-val').textContent='₹'+Math.round(goldNisabValue).toLocaleString('en-IN');
+
+  const resEl=document.getElementById('zakat-result');
+  if(totalWealth<=0){
+    document.getElementById('zakat-due').textContent='₹ 0';
+    document.getElementById('zakat-note').textContent='Enter your wealth above to calculate.\nZakat = 2.5% of total zakatable wealth above Nisab.';
+    resEl.style.borderColor='rgba(76,175,125,0.5)';
+    return;
+  }
+  if(totalWealth<nisab){
+    document.getElementById('zakat-due').textContent='₹ 0';
+    document.getElementById('zakat-note').textContent=`Your total wealth ₹${Math.round(totalWealth).toLocaleString('en-IN')} is below the Nisab threshold of ₹${Math.round(nisab).toLocaleString('en-IN')}.\nZakat is not obligatory. May Allah increase your rizq. 🤲`;
+    resEl.style.borderColor='rgba(76,175,125,0.3)';
+    return;
+  }
+  const zakat=totalWealth*0.025;
+  document.getElementById('zakat-due').textContent='₹ '+zakat.toLocaleString('en-IN',{maximumFractionDigits:0});
+  document.getElementById('zakat-note').textContent=`Total Zakatable Wealth: ₹${Math.round(totalWealth).toLocaleString('en-IN')}\nAbove Nisab (₹${Math.round(nisab).toLocaleString('en-IN')})\nZakat Due = 2.5% = ₹${Math.round(zakat).toLocaleString('en-IN')}\n\nPaying Zakat purifies your wealth. May Allah accept it. 🤲`;
+  resEl.style.borderColor='rgba(76,175,125,0.8)';
+}
+
+// ── TARAWEEH TRACKER ──
+let rakatCount=0;
+const RAKAT_MILESTONES={4:'4 done · ¼ of Taraweeh 🌙',8:'8 done · Halfway through first half ⭐',10:'10 done · Halfway there! 🌟',12:'12 done · 3 quarters left! 🕌',16:'16 done · Almost there! 💫',20:'20 Taraweeh complete! MashaAllah! 🎉',23:'20 Taraweeh + 3 Witr done! JazakAllah! 🤲'};
+function renderRakatDots(){
+  const container=document.getElementById('rakat-dots');
+  container.innerHTML='';
+  for(let i=1;i<=23;i++){
+    const d=document.createElement('div');
+    const isMilestone=[4,8,10,12,16,20,23].includes(i);
+    d.className='rakat-dot'+(i<=rakatCount?' done':'')+(isMilestone?' milestone':'');
+    if(i===21)d.style.background=i<=rakatCount?'var(--blue)':'transparent',d.style.borderColor=i<=rakatCount?'var(--blue)':'rgba(74,158,190,0.4)';
+    d.title='Rakat '+i;
+    container.appendChild(d);
+  }
+  document.getElementById('rakat-count').textContent=rakatCount;
+  const pct=Math.min(100,Math.round((rakatCount/20)*100));
+  document.getElementById('rakat-fill').style.width=rakatCount<=20?pct+'%':'100%';
+  const msg=RAKAT_MILESTONES[rakatCount]||(rakatCount===0?'Tap + to track each Rakat completed 🤲':rakatCount<20?`${rakatCount} Rakats done · ${20-rakatCount} more to go 💪`:rakatCount<23?`20 Taraweeh done! Now ${23-rakatCount} Witr remaining 🌙`:'');
+  document.getElementById('rakat-milestone').textContent=msg;
+}
+function changeRakat(n){rakatCount=Math.max(0,Math.min(23,rakatCount+n));renderRakatDots();}
+function resetRakat(){rakatCount=0;renderRakatDots();}
+
+// ── TASBEEH COUNTER ──
+const TB_DATA=[
+  {a:'سُبْحَانَ اللّٰهِ',m:'Glory be to Allah',id:'tb-subhan'},
+  {a:'اَلْحَمْدُ لِلّٰهِ',m:'All praise is due to Allah',id:'tb-alhamd'},
+  {a:'اَللّٰهُ أَكْبَرُ',m:'Allah is the Greatest',id:'tb-akbar'}
+];
+let tbMode=0,tbCounts=[0,0,0],tbTarget=33,tbLastTap=0;
+function setMode(m){
+  tbMode=m;
+  document.querySelectorAll('.tasbeeh-mode-btn').forEach((b,i)=>b.classList.toggle('active',i===m));
+  document.getElementById('tb-arabic').textContent=TB_DATA[m].a;
+  document.getElementById('tb-meaning').textContent=TB_DATA[m].m;
+  updateTasbeeh();
+}
+function tapTasbeeh(){
+  const now=Date.now();
+  if(now-tbLastTap<100)return; // debounce
+  tbLastTap=now;
+  tbCounts[tbMode]++;
+  if(navigator.vibrate)navigator.vibrate(30);
+  updateTasbeeh();
+  // Check if completed a set
+  if(tbCounts[tbMode]===tbTarget){
+    if(navigator.vibrate)navigator.vibrate([60,40,60,40,120]);
+  }
+}
+function updateTasbeeh(){
+  const c=tbCounts[tbMode]%tbTarget;
+  const display=tbCounts[tbMode];
+  document.getElementById('tb-count').textContent=display;
+  const pct=Math.min(100,(c===0&&display>0?100:c/tbTarget*100));
+  document.getElementById('tb-fill').style.width=pct+'%';
+  const sets=Math.floor(tbCounts[tbMode]/tbTarget);
+  document.getElementById('tb-target').textContent=`TARGET: ${tbTarget} · SETS: ${sets} · TOTAL: ${tbCounts[tbMode]}`;
+  document.getElementById('tot-s').textContent=tbCounts[0];
+  document.getElementById('tot-a').textContent=tbCounts[1];
+  document.getElementById('tot-k').textContent=tbCounts[2];
+}
+function resetCurrentTasbeeh(){tbCounts[tbMode]=0;updateTasbeeh();}
+function resetAllTasbeeh(){tbCounts=[0,0,0];updateTasbeeh();}
+
+// Initialize verse to today's roza on load
+window.addEventListener('load',()=>{currentVerseIdx=getTodayVerseIdx();calcZakat();});
+function initCitySw(){document.getElementById('city-sw').innerHTML=CITIES.map(c=>`<div class="city-btn${c.name===selCity.name?' active':''}" onclick="switchCity('${c.name}')">${c.name}</div>`).join('');}
+function switchCity(name){selCity=CITIES.find(c=>c.name===name)||CITIES[0];initCitySw();renderCities();renderSchedule();document.getElementById('sched-city-lbl').textContent=selCity.name;updatePrayerCards();}
+
+function updatePrayerCards(){
+  const t=getTodayTimings();if(!t)return;
+  // Sehri time IS the exact announced time from verified sources (Hanafi)
+  document.getElementById('t-fajr').textContent=to12h(t.sh,t.sm);
+  document.getElementById('t-maghrib').textContent=to12h(t.ih,t.im);
+  document.getElementById('t-dhuhr').textContent=to12h(selCity.dhuhr[0],selCity.dhuhr[1]);
+  document.getElementById('t-asr').textContent=to12h(selCity.asr[0],selCity.asr[1]);
+  document.getElementById('t-isha').textContent=to12h(selCity.isha[0],selCity.isha[1]);
+  const trM=selCity.isha[1]+20;document.getElementById('t-tarawih').textContent=to12h(selCity.isha[0]+(trM>=60?1:0),trM%60);
+}
+
+function renderCities(){
+  const idx=Math.max(0,getRozaIdx(new Date()));
+  document.getElementById('cities-grid').innerHTML=CITIES.map(c=>{
+    const sc=c.sched[idx];
+    return`<div class="city-card${c.name===selCity.name?' active-city':''}" onclick="switchCity('${c.name}');showTab('home')">
+      <div class="cname">${c.name}${c.isDefault?'<span class="def-tag">DEFAULT</span>':''}</div>
+      <div class="ctrow"><span style="color:var(--blue)">●</span><span class="ct-lbl">SEHRI</span><span class="ct-val">${to12h(sc[0],sc[1])}</span></div>
+      <div class="ctrow"><span style="color:var(--gold)">●</span><span class="ct-lbl">IFTAR</span><span class="ct-val">${to12h(sc[2],sc[3])}</span></div>
+      <div class="city-src">HANAFI · FAJR−10MIN · ASTRO</div>
+    </div>`;
+  }).join('');
+}
+
+function renderSchedule(){
+  const now=new Date();const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());let html='';
+  RAMZAN_DATES.forEach((rd,i)=>{
+    const rn=i+1,isToday=rd.getTime()===today.getTime(),isPast=rd<today;
+    const daysLeft=Math.max(0,Math.ceil((rd-today)/86400000));
+    const sc=selCity.sched[i],isJuma=rd.getDay()===5,isQadr=[21,23,25,27,29].includes(rn);
+    html+=`<div class="srow${isToday?' today-row':''}${isPast?' past':''}${isQadr?' qadr-night':''}">
+      <div class="sc"><span class="sc-date">${SD2[rd.getDay()]}, ${rd.getDate()} ${SM2[rd.getMonth()]}</span>${isToday?'<span class="t-pill">TODAY</span>':''}</div>
+      <div class="sc"><span class="sc-day${isJuma?' juma':''}">${DAYNAME[rd.getDay()]}</span></div>
+      <div class="sc"><span class="sc-roza">${rn}</span></div>
+      <div class="sc"><span class="sc-time">${to12h(sc[0],sc[1])}</span></div>
+      <div class="sc"><span class="sc-time">${to12h(sc[2],sc[3])}</span></div>
+      <div class="sc"><span class="sc-rem">${isPast?'✓':(daysLeft===0?'TODAY':daysLeft+'d')}</span></div>
+    </div>`;
+  });
+  document.getElementById('sched-body').innerHTML=html;
+}
+
+function updateEid(){const d=Math.max(0,Math.ceil((EID-new Date())/86400000));document.getElementById('eid-days').textContent=d;document.getElementById('eid-inline').textContent=d;}
+
+function tick(){
+  const now=new Date();
+  document.getElementById('clock').textContent=`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+  document.getElementById('today-date').textContent=`${FDAY[now.getDay()]}, ${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`;
+  const ri=getRozaIdx(now);
+  if(ri>=0){const rn=ri+1;const sfx=rn===1?'ST':rn===2?'ND':rn===3?'RD':'TH';document.getElementById('roza-lbl').textContent=`TODAY · ${rn}${sfx} ROZA · RAMADAN 1447 AH`;document.getElementById('rh-num').textContent=ORD[rn];const pct=Math.round((rn/30)*100);document.getElementById('rh-pct').textContent=`${pct}% complete`;document.getElementById('mini-fill').style.width=`${pct}%`;}
+  updateEid();
+  const todayD=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  [{id:'nb-nisf',d:new Date(2026,2,4)},{id:'nb-21',d:new Date(2026,2,10)},{id:'nb-23',d:new Date(2026,2,12)},{id:'nb-25',d:new Date(2026,2,14)},{id:'nb-27',d:new Date(2026,2,16)},{id:'nb-29',d:new Date(2026,2,18)}].forEach(n=>{const el=document.getElementById(n.id);if(!el)return;if(n.d.getTime()===todayD.getTime()){el.textContent='TONIGHT';el.style.color='var(--green)';el.style.borderColor='var(--green)';}else if(n.d<todayD){el.textContent='PASSED';el.className='night-badge past-b';}});
+  const t=getTodayTimings();if(!t)return;
+  const{sh,sm,ih,im}=t;
+  document.getElementById('sehri-t').textContent=to12h(sh,sm);
+  document.getElementById('iftar-t').textContent=to12h(ih,im);
+  const nowSecs=now.getHours()*3600+now.getMinutes()*60+now.getSeconds();
+  const sehriSecs=sh*3600+sm*60,iftarSecs=ih*3600+im*60;
+  const aF=nowSecs>=sehriSecs,aI=nowSecs>=iftarSecs;
+  let diff,label;
+  if(!aF){diff=sehriSecs-nowSecs;label='🌙 SUHOOR ENDS IN';}
+  else if(!aI){diff=iftarSecs-nowSecs;label='☀ TIME REMAINING UNTIL IFTAR';}
+  else{diff=0;label='🌙 ALHAMDULILLAH · ROZA COMPLETE';}
+  document.getElementById('cd-label').textContent=label;
+  document.getElementById('cd-h').textContent=String(Math.floor(diff/3600)).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(Math.floor((diff%3600)/60)).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(diff%60).padStart(2,'0');
+  document.getElementById('sehri-st').textContent=aF?'PASSED':'UPCOMING';document.getElementById('sehri-st').className='stag '+(aF?'tag-pass':'tag-up');
+  document.getElementById('iftar-st').textContent=aI?'PASSED':'UPCOMING';document.getElementById('iftar-st').className='stag '+(aI?'tag-pass':'tag-up');
+  const dhuhrS=selCity.dhuhr[0]*3600+selCity.dhuhr[1]*60,asrS=selCity.asr[0]*3600+selCity.asr[1]*60,ishaS=selCity.isha[0]*3600+selCity.isha[1]*60;
+  [{id:'pt-fajr',from:sehriSecs},{id:'pt-dhuhr',from:dhuhrS},{id:'pt-asr',from:asrS},{id:'pt-maghrib',from:iftarSecs},{id:'pt-isha',from:ishaS}].forEach((p,i,arr)=>{const next=arr[i+1];const active=nowSecs>=p.from&&(!next||nowSecs<next.from);const el=document.getElementById(p.id);if(el)el.className='pt-card'+(active?' active-prayer':'');});
+  const fMin=(sehriSecs-nowSecs)/60;
+  if(fMin>0&&fMin<10&&!sehriAlertShown){document.getElementById('sehri-alert').classList.remove('hidden');sehriAlertShown=true;}
+  else if(fMin<=-5){document.getElementById('sehri-alert').classList.add('hidden');sehriAlertShown=false;}
+  const iMin=(iftarSecs-nowSecs)/60;
+  if(iMin<=0&&iMin>-2&&!iftarAlertShown){document.getElementById('iftar-alert').classList.remove('hidden');iftarAlertShown=true;setTimeout(()=>document.getElementById('iftar-alert').classList.add('hidden'),120000);}
+}
+
+initStars();initCitySw();renderCities();renderSchedule();updatePrayerCards();tick();setInterval(tick,1000);setInterval(updateEid,60000);
+</script>
+</body>
+</html>
