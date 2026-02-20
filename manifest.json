@@ -1,0 +1,17 @@
+{
+  "name": "Ramadan Mubarak 2026 | India",
+  "short_name": "Ramadan 2026",
+  "description": "Prayer times, Duas, Tasbeeh, Zakat & Qibla for all major Indian cities. Ramadan 1447 AH.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#010608",
+  "theme_color": "#c9a84c",
+  "lang": "en-IN",
+  "categories": ["lifestyle", "religion", "utilities"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
