@@ -12,7 +12,7 @@
 body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);display:flex;justify-content:center;overflow-x:hidden}
 .app{width:100%;max-width:480px;min-height:100vh;background:linear-gradient(180deg,#04090f,#07101f 30%,#0a1628 60%,#07101f 85%,#04090f);position:relative;overflow-x:hidden;padding-bottom:75px}
 .stars-bg{position:fixed;top:0;left:50%;transform:translateX(-50%);width:480px;max-width:100vw;height:100%;pointer-events:none;z-index:0;overflow:hidden}
-.star{position:absolute;background:radial-gradient(circle,#fff 0%,rgba(200,220,255,.8) 100%);border-radius:50%;animation:twinkle var(--d) ease-in-out infinite;opacity:0;box-shadow:0 0 3px rgba(255,255,255,.5)}
+.star{position:absolute;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite var(--dl,0s);opacity:0}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--o)}}
 .shoot{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:fly var(--sd) linear infinite var(--dl);opacity:0}
 .shoot::after{content:"";position:absolute;right:2px;top:0;width:var(--tl);height:1px;background:linear-gradient(90deg,rgba(255,255,255,.65),transparent)}
@@ -26,7 +26,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 .hero-lanterns{display:flex;justify-content:space-around;align-items:flex-start;padding:0 10px;height:72px;position:relative;z-index:4}
 .lantern{display:flex;flex-direction:column;align-items:center;animation:sway var(--ls) ease-in-out infinite var(--ld);transform-origin:top center}
 .l-str{width:1px;height:20px;background:linear-gradient(180deg,rgba(201,168,76,.5),rgba(201,168,76,.12))}
-.l-ico{font-size:26px;filter:drop-shadow(0 0 10px rgba(201,168,76,.8))}
+.l-ico{font-size:26px;filter:drop-shadow(0 0 16px rgba(255,200,50,.95)) drop-shadow(0 0 32px rgba(201,168,76,.55));display:flex;align-items:center;justify-content:center}
 .l-glow{width:20px;height:6px;border-radius:50%;background:radial-gradient(ellipse,rgba(201,168,76,.4),transparent);margin-top:-2px;animation:lg var(--ls) ease-in-out infinite var(--ld)}
 @keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
 @keyframes lg{0%,100%{opacity:.4;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1.3)}}
@@ -168,7 +168,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 .sh{font-family:"Cinzel",serif;font-size:12px;letter-spacing:1px;color:var(--gold);text-align:center}.sh:first-child{text-align:left}
 .sched-body{max-height:460px;overflow-y:auto}.sched-body::-webkit-scrollbar{width:3px}.sched-body::-webkit-scrollbar-thumb{background:var(--goldd);border-radius:2px}
 .srow{display:grid;grid-template-columns:2.2fr 1.2fr .6fr 1.2fr 1.2fr .8fr;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.03);align-items:center}
-.srow:last-child{border-bottom:none}.srow.tod{background:linear-gradient(90deg,rgba(201,168,76,.09),rgba(201,168,76,.03));border-left:3px solid var(--gold)}.srow.past{opacity:.37}.srow.qadr{border-left:2px solid rgba(201,168,76,.38)}
+.srow:last-child{border-bottom:none}.srow.tod{background:linear-gradient(90deg,rgba(201,168,76,.13),rgba(201,168,76,.04));border-left:3px solid var(--gold);box-shadow:0 0 0 1px rgba(201,168,76,.22) inset,0 3px 18px rgba(201,168,76,.12);transform:translateX(3px);border-radius:0 12px 12px 0}.srow.past{opacity:.37}.srow.qadr{border-left:2px solid rgba(201,168,76,.38)}
 .sc{font-size:11px;color:var(--cream);text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}.sc:first-child{text-align:left;align-items:flex-start}
 .sc-d{font-family:"EB Garamond",serif;font-size:12px;line-height:1.3}.t-pill{background:var(--gold);color:#0a1628;font-family:"Cinzel",serif;font-size:12px;padding:1px 6px;border-radius:10px;font-weight:700}
 .sc-day{font-family:"Cinzel",serif;font-size:11px;letter-spacing:1px;color:var(--gold)}.sc-day.juma{color:var(--goldl);font-weight:600}
@@ -316,7 +316,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 .qp-stat{text-align:center}
 .qp-num{font-family:"Cinzel",serif;font-size:28px;font-weight:700;color:#4a9ebe;line-height:1}
 .qp-lbl{font-family:"Cinzel",serif;font-size:12px;letter-spacing:1.5px;color:var(--muted);margin-top:3px}
-.qp-pb{height:4px;background:rgba(74,158,190,.12);border-radius:2px;margin:0 0 10px;overflow:hidden}
+.qp-pb{display:none}.qp-ring-wrap{display:flex;justify-content:center;margin:4px 0 16px}.qp-ring{width:118px;height:118px;position:relative}.qp-ring svg{transform:rotate(-90deg)}.qp-ring-ctr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}.qp-ring-pct{font-family:"Cinzel",serif;font-size:23px;font-weight:700;color:#4a9ebe;line-height:1}.qp-ring-sub{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1.5px;color:var(--muted);margin-top:2px}
 .qp-pf{height:100%;background:linear-gradient(90deg,#4a9ebe,rgba(155,127,212,.7));border-radius:2px;transition:width .4s}
 .qp-hint{font-family:"EB Garamond",serif;font-style:italic;font-size:12px;color:var(--muted);margin-bottom:14px}
 .qp-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-bottom:16px}
@@ -372,7 +372,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 .ht-st{font-family:"Cinzel",serif;font-size:12.5px;letter-spacing:2px;margin-top:6px;text-transform:uppercase;white-space:nowrap}
 .ht-st.pa{color:#c9813a}
 .ht-st.up{color:rgba(255,255,255,.75)}
-.ht-moon{font-size:38px;filter:drop-shadow(0 0 20px rgba(255,220,80,1)) drop-shadow(0 0 40px rgba(201,168,76,.5));animation:mf 4s ease-in-out infinite;margin-bottom:6px}
+.ht-moon{font-size:52px;filter:drop-shadow(0 0 18px rgba(255,210,60,.9)) drop-shadow(0 0 40px rgba(200,150,0,.5)) drop-shadow(0 0 70px rgba(180,120,0,.25));animation:mf 4s ease-in-out infinite;margin-bottom:8px;display:block;text-align:center;line-height:1}
 .ht-roza{font-family:"Cinzel",serif;font-size:13px;font-weight:700;background:linear-gradient(135deg,#c9a84c,#f0d080);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1.5px;line-height:1.3}
 .ht-city{font-family:"Cinzel",serif;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.6);margin-top:5px}
 
@@ -450,7 +450,13 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 
 /* ── DUA CARDS v2 ── */
 .dua-cat{padding:0 14px}
-.dua-card2{background:linear-gradient(145deg,rgba(8,16,36,.97),rgba(5,10,22,.95));border:1px solid rgba(201,168,76,.18);border-radius:16px;padding:18px 16px;margin-bottom:12px;position:relative;overflow:hidden}
+.dua-card2{background:linear-gradient(145deg,rgba(6,11,28,.98),rgba(9,18,40,.96));border:1px solid rgba(201,168,76,.26);border-radius:18px;padding:20px 18px;margin-bottom:14px;position:relative;overflow:hidden;transition:border-color .3s;box-shadow:0 4px 20px rgba(0,0,0,.3),inset 0 1px 0 rgba(201,168,76,.09)}
+.dua-card2:active{border-color:rgba(201,168,76,.5)}
+.dc-tl,.dc-tr,.dc-bl,.dc-br{position:absolute;width:18px;height:18px;pointer-events:none}
+.dc-tl{top:7px;left:7px;border-top:1.5px solid rgba(201,168,76,.5);border-left:1.5px solid rgba(201,168,76,.5);border-radius:4px 0 0 0}
+.dc-tr{top:7px;right:7px;border-top:1.5px solid rgba(201,168,76,.5);border-right:1.5px solid rgba(201,168,76,.5);border-radius:0 4px 0 0}
+.dc-bl{bottom:7px;left:7px;border-bottom:1.5px solid rgba(201,168,76,.35);border-left:1.5px solid rgba(201,168,76,.35);border-radius:0 0 0 4px}
+.dc-br{bottom:7px;right:7px;border-bottom:1.5px solid rgba(201,168,76,.35);border-right:1.5px solid rgba(201,168,76,.35);border-radius:0 0 4px 0}
 .dua-card2::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(240,208,128,.25),transparent)}
 .dua-card2.tw-style{border-color:rgba(240,210,80,.3);background:linear-gradient(145deg,rgba(12,20,10,.97),rgba(8,16,8,.95))}
 .dua-card2.qadr-style{border-color:rgba(201,168,76,.5);background:linear-gradient(145deg,rgba(20,16,4,.97),rgba(14,10,2,.95));box-shadow:0 4px 20px rgba(201,168,76,.15)}
@@ -541,7 +547,39 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 .zk-nc-icon{font-size:22px;margin-bottom:6px}
 .zk-nc-title{font-family:"Cinzel",serif;font-size:12px;letter-spacing:2px;margin-bottom:4px}
 .zk-nc-sub{font-family:"EB Garamond",serif;font-size:13px;color:var(--muted);line-height:1.5}
-
+.star.sg{background:radial-gradient(circle,#fff9d0,rgba(201,168,76,.7));box-shadow:0 0 5px rgba(201,168,76,.65)}
+.star.sb{background:radial-gradient(circle,#cce4ff,rgba(74,158,190,.6));box-shadow:0 0 4px rgba(74,158,190,.5)}
+.star.sw{background:radial-gradient(circle,#fff,rgba(220,230,255,.8));box-shadow:0 0 3px rgba(255,255,255,.55)}.cel-ov{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.cel-bg{position:absolute;inset:0;animation:celBg 3.5s ease-out forwards}
+.cel-body{position:relative;text-align:center;animation:celPop 3.5s ease-out forwards;padding:28px 22px}
+.cel-star{font-size:30px;letter-spacing:14px;display:block;margin-bottom:14px;color:#f0d070}
+.cel-ar{font-family:"Amiri",serif;font-size:44px;direction:rtl;line-height:1.4;margin-bottom:8px;color:#f5e090;filter:drop-shadow(0 0 28px rgba(255,210,30,1)) drop-shadow(0 0 60px rgba(201,168,76,.7))}
+.cel-en{font-family:"Cinzel",serif;font-size:13px;letter-spacing:3px;color:rgba(240,210,120,.9)}
+.cel-par{position:absolute;width:5px;height:5px;border-radius:50%;animation:celPar var(--pt) ease-out var(--pd) forwards;opacity:0}
+@keyframes celBg{0%{background:rgba(0,0,0,0)}15%{background:rgba(0,0,0,.58)}75%{background:rgba(0,0,0,.48)}100%{background:rgba(0,0,0,0)}}
+@keyframes celPop{0%{opacity:0;transform:scale(.15)}28%{opacity:1;transform:scale(1.07)}50%{transform:scale(.97)}70%{opacity:1;transform:scale(1)}88%{opacity:1}100%{opacity:0;transform:translateY(-20px)}}
+@keyframes celPar{0%{opacity:1;transform:translate(0,0)scale(1)}100%{opacity:0;transform:translate(var(--px),var(--py))scale(0)}}.pt.ap,.pt.active{background:linear-gradient(145deg,rgba(22,38,70,.97),rgba(14,26,50,.97))!important;border-color:rgba(201,168,76,.6)!important;box-shadow:0 0 0 1px rgba(201,168,76,.22),0 6px 24px rgba(201,168,76,.25),0 0 55px rgba(201,168,76,.1)!important;animation:ptGlow 2.8s ease-in-out infinite}
+.pt.ap .pt-tm,.pt.active .pt-tm{background:linear-gradient(180deg,#fff,#f5e090);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pt.ap .pt-lb,.pt.active .pt-lb{color:rgba(240,210,128,.95)}
+.pt.ap .pt-ic,.pt.active .pt-ic{filter:drop-shadow(0 0 7px rgba(255,220,60,.8))}
+@keyframes ptGlow{0%,100%{box-shadow:0 0 0 1px rgba(201,168,76,.22),0 6px 24px rgba(201,168,76,.25),0 0 55px rgba(201,168,76,.1)}50%{box-shadow:0 0 0 2px rgba(201,168,76,.4),0 8px 32px rgba(201,168,76,.38),0 0 80px rgba(201,168,76,.18)}}.roza-arc-wrap{position:relative;width:180px;height:110px;margin:8px auto 4px}
+.roza-arc-svg{filter:drop-shadow(0 0 14px rgba(201,168,76,.45)) drop-shadow(0 0 32px rgba(201,168,76,.2))}
+.roza-arc-inner{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.roza-arc-num{font-family:"Cinzel",serif;font-size:36px;font-weight:700;line-height:1;background:linear-gradient(180deg,#fff8e0,#f0d060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.roza-arc-lbl{font-family:"Cinzel",serif;font-size:8.5px;letter-spacing:2.5px;color:var(--muted);margin-top:1px}
+.roza-arc-sub{font-family:"EB Garamond",serif;font-style:italic;font-size:11px;color:rgba(201,168,76,.5);margin-top:2px}.ts-ms{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;pointer-events:none;animation:msFade 1.2s ease-out forwards}
+.ts-ms-inner{text-align:center;animation:msPop 1.2s ease-out forwards}
+.ts-ms-ar{font-family:"Amiri",serif;font-size:38px;color:#f5e090;direction:rtl;filter:drop-shadow(0 0 24px rgba(255,220,70,.9));margin-bottom:6px}
+.ts-ms-en{font-family:"Cinzel",serif;font-size:12px;letter-spacing:2px;color:rgba(240,210,128,.75)}
+@keyframes msFade{0%{background:rgba(0,0,0,0)}20%{background:rgba(0,0,0,.5)}80%{background:rgba(0,0,0,.4)}100%{background:rgba(0,0,0,0)}}
+@keyframes msPop{0%{opacity:0;transform:scale(.5)}35%{opacity:1;transform:scale(1.08)}60%{transform:scale(.98)}85%{opacity:1}100%{opacity:0;transform:translateY(-15px)}}.ts-beads-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;margin:8px 0 2px}
+.ts-bead-row{display:flex;gap:4px;align-items:center}
+.ts-bead{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.15),rgba(201,168,76,.07));border:1.5px solid rgba(201,168,76,.2);transition:all .22s cubic-bezier(.34,1.56,.64,1)}
+.ts-bead.on{background:radial-gradient(circle at 32% 28%,#fff8c8,#d4a020 55%,#8a5e08);border-color:rgba(201,168,76,.95);box-shadow:0 0 7px rgba(201,168,76,.55),0 0 18px rgba(201,168,76,.2);transform:scale(1.12)}
+.ts-bead-big{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.12),rgba(155,127,212,.12));border:2px solid rgba(155,127,212,.28);transition:all .22s}
+.ts-bead-big.on{background:radial-gradient(circle at 35% 30%,rgba(210,180,255,.95),rgba(155,127,212,.85) 60%,rgba(90,50,160,.9));border-color:rgba(155,127,212,.9);box-shadow:0 0 8px rgba(155,127,212,.6)}.geo-bg{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:.03;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg transform='translate(22,22)'%3E%3Cpolygon points='0,-11 2.9,-2.9 11,0 2.9,2.9 0,11 -2.9,2.9 -11,0 -2.9,-2.9' fill='%23c9a84c' opacity='.9'/%3E%3Cpolygon points='0,-11 2.9,-2.9 11,0 2.9,2.9 0,11 -2.9,2.9 -11,0 -2.9,-2.9' fill='none' stroke='%23c9a84c' stroke-width='.5' opacity='.5' transform='rotate(45)'/%3E%3C/g%3E%3C/svg%3E") repeat;background-size:44px}
+.today-card{position:relative;overflow:hidden}
+.ht-box{position:relative;overflow:hidden}.ht-wx{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.8px;color:rgba(201,168,76,.55);margin-top:4px;min-height:14px}
 </style>
 </head>
 <body>
@@ -566,11 +604,11 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 
 <div class="hero">
   <div class="hero-lanterns">
-    <div class="lantern" style="--ls:3.2s;--ld:0s"><div class="l-str"></div><div class="l-ico">🏮</div><div class="l-glow"></div></div>
-    <div class="lantern" style="--ls:2.7s;--ld:.5s"><div class="l-str"></div><div class="l-ico">🪔</div><div class="l-glow"></div></div>
-    <div class="lantern" style="--ls:3.6s;--ld:.9s"><div class="l-str"></div><div class="l-ico">🏮</div><div class="l-glow"></div></div>
-    <div class="lantern" style="--ls:2.5s;--ld:.3s"><div class="l-str"></div><div class="l-ico">🪔</div><div class="l-glow"></div></div>
-    <div class="lantern" style="--ls:3.9s;--ld:.7s"><div class="l-str"></div><div class="l-ico">🏮</div><div class="l-glow"></div></div>
+    <div class="lantern" style="--ls:3.2s;--ld:0s"><div class="l-str"></div><div class="l-ico"><svg width="28" height="46" viewBox="0 0 28 46" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fgA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff0a0"/><stop offset="35%" stop-color="#d4a020"/><stop offset="100%" stop-color="#7a4e00"/></linearGradient><radialGradient id="fiA" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="rgba(255,185,40,.44)"/><stop offset="100%" stop-color="rgba(200,120,0,0)"/></radialGradient></defs><line x1="14" y1="0" x2="14" y2="5" stroke="rgba(201,168,76,.75)" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="14" cy="5" rx="3" ry="2" fill="none" stroke="url(#fgA)" stroke-width="1.5"/><polygon points="14,7 7,10 11,12 17,12 21,10" fill="url(#fgA)"/><circle cx="14" cy="7" r="2" fill="#fff5c0"/><circle cx="7" cy="10" r="1.5" fill="#f5e090"/><circle cx="21" cy="10" r="1.5" fill="#f5e090"/><path d="M5 12 C2 18 3 25 5 33 L23 33 C25 25 26 18 23 12 Z" fill="url(#fiA)"/><path d="M5 12 C2 18 3 25 5 33 L23 33 C25 25 26 18 23 12 Z" fill="none" stroke="url(#fgA)" stroke-width="1.1"/><line x1="14" y1="12" x2="14" y2="33" stroke="rgba(201,168,76,.55)" stroke-width=".9"/><line x1="10" y1="13" x2="8" y2="32" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><line x1="18" y1="13" x2="20" y2="32" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><path d="M8 18 Q14 17 20 18" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><path d="M7 23 Q14 21 21 23" stroke="rgba(201,168,76,.5)" stroke-width=".8" fill="none"/><path d="M8 27 Q14 26 20 27" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><g transform="translate(14,23) rotate(22.5)"><polygon points="0,-3 1,-1 3,0 1,1 0,3 -1,1 -3,0 -1,-1" fill="rgba(255,220,70,.8)" stroke="rgba(201,168,76,.4)" stroke-width=".5"/></g><polygon points="14,33 7,35 11,33 17,33 21,35" fill="url(#fgA)"/><circle cx="14" cy="33" r="1.8" fill="#fff5c0"/><line x1="14" y1="35" x2="14" y2="46" stroke="url(#fgA)" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="14" cy="46" rx="3" ry="1" fill="url(#fgA)"/></svg></div><div class="l-glow"></div></div>
+    <div class="lantern" style="--ls:2.7s;--ld:.5s;margin-top:10px"><div class="l-str"></div><div class="l-ico"><svg width="23" height="38" viewBox="0 0 23 38" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fgB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff0a0"/><stop offset="35%" stop-color="#d4a020"/><stop offset="100%" stop-color="#7a4e00"/></linearGradient><radialGradient id="fiB" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="rgba(255,185,40,.44)"/><stop offset="100%" stop-color="rgba(200,120,0,0)"/></radialGradient></defs><line x1="11" y1="0" x2="11" y2="4" stroke="rgba(201,168,76,.75)" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="11" cy="4" rx="2" ry="2" fill="none" stroke="url(#fgB)" stroke-width="1.5"/><polygon points="11,6 6,8 8,10 14,10 16,8" fill="url(#fgB)"/><circle cx="11" cy="6" r="2" fill="#fff5c0"/><circle cx="6" cy="8" r="1.5" fill="#f5e090"/><circle cx="16" cy="8" r="1.5" fill="#f5e090"/><path d="M4 10 C1 15 2 20 4 27 L18 27 C20 20 21 15 18 10 Z" fill="url(#fiB)"/><path d="M4 10 C1 15 2 20 4 27 L18 27 C20 20 21 15 18 10 Z" fill="none" stroke="url(#fgB)" stroke-width="1.1"/><line x1="11" y1="10" x2="11" y2="27" stroke="rgba(201,168,76,.55)" stroke-width=".9"/><line x1="8" y1="11" x2="6" y2="26" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><line x1="14" y1="11" x2="16" y2="26" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><path d="M7 15 Q11 14 15 15" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><path d="M6 19 Q11 17 16 19" stroke="rgba(201,168,76,.5)" stroke-width=".8" fill="none"/><path d="M7 22 Q11 21 15 22" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><g transform="translate(11,19) rotate(22.5)"><polygon points="0,-3 1,-1 3,0 1,1 0,3 -1,1 -3,0 -1,-1" fill="rgba(255,220,70,.8)" stroke="rgba(201,168,76,.4)" stroke-width=".5"/></g><polygon points="11,27 6,29 8,27 14,27 16,29" fill="url(#fgB)"/><circle cx="11" cy="27" r="1.8" fill="#fff5c0"/><line x1="11" y1="29" x2="11" y2="38" stroke="url(#fgB)" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="11" cy="38" rx="2" ry="0" fill="url(#fgB)"/></svg></div><div class="l-glow"></div></div>
+    <div class="lantern" style="--ls:3.6s;--ld:.9s;margin-top:18px"><div class="l-str"></div><div class="l-ico"><svg width="19" height="31" viewBox="0 0 19 31" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fgC" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff0a0"/><stop offset="35%" stop-color="#d4a020"/><stop offset="100%" stop-color="#7a4e00"/></linearGradient><radialGradient id="fiC" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="rgba(255,185,40,.44)"/><stop offset="100%" stop-color="rgba(200,120,0,0)"/></radialGradient></defs><line x1="9" y1="0" x2="9" y2="3" stroke="rgba(201,168,76,.75)" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="9" cy="3" rx="2" ry="1" fill="none" stroke="url(#fgC)" stroke-width="1.5"/><polygon points="9,5 5,6 7,8 11,8 13,6" fill="url(#fgC)"/><circle cx="9" cy="5" r="2" fill="#fff5c0"/><circle cx="5" cy="6" r="1.5" fill="#f5e090"/><circle cx="13" cy="6" r="1.5" fill="#f5e090"/><path d="M3 8 C1 12 2 17 3 22 L15 22 C16 17 17 12 15 8 Z" fill="url(#fiC)"/><path d="M3 8 C1 12 2 17 3 22 L15 22 C16 17 17 12 15 8 Z" fill="none" stroke="url(#fgC)" stroke-width="1.1"/><line x1="9" y1="8" x2="9" y2="22" stroke="rgba(201,168,76,.55)" stroke-width=".9"/><line x1="6" y1="9" x2="4" y2="21" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><line x1="12" y1="9" x2="14" y2="21" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><path d="M6 12 Q9 11 12 12" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><path d="M5 15 Q9 14 13 15" stroke="rgba(201,168,76,.5)" stroke-width=".8" fill="none"/><path d="M6 18 Q9 17 12 18" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><g transform="translate(9,15) rotate(22.5)"><polygon points="0,-2 1,-1 2,0 1,1 0,2 -1,1 -2,0 -1,-1" fill="rgba(255,220,70,.8)" stroke="rgba(201,168,76,.4)" stroke-width=".5"/></g><polygon points="9,22 5,24 7,22 11,22 13,24" fill="url(#fgC)"/><circle cx="9" cy="22" r="1.8" fill="#fff5c0"/><line x1="9" y1="24" x2="9" y2="31" stroke="url(#fgC)" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="9" cy="31" rx="2" ry="0" fill="url(#fgC)"/></svg></div><div class="l-glow"></div></div>
+    <div class="lantern" style="--ls:2.5s;--ld:.3s;margin-top:10px"><div class="l-str"></div><div class="l-ico"><svg width="23" height="38" viewBox="0 0 23 38" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fgB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff0a0"/><stop offset="35%" stop-color="#d4a020"/><stop offset="100%" stop-color="#7a4e00"/></linearGradient><radialGradient id="fiB" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="rgba(255,185,40,.44)"/><stop offset="100%" stop-color="rgba(200,120,0,0)"/></radialGradient></defs><line x1="11" y1="0" x2="11" y2="4" stroke="rgba(201,168,76,.75)" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="11" cy="4" rx="2" ry="2" fill="none" stroke="url(#fgB)" stroke-width="1.5"/><polygon points="11,6 6,8 8,10 14,10 16,8" fill="url(#fgB)"/><circle cx="11" cy="6" r="2" fill="#fff5c0"/><circle cx="6" cy="8" r="1.5" fill="#f5e090"/><circle cx="16" cy="8" r="1.5" fill="#f5e090"/><path d="M4 10 C1 15 2 20 4 27 L18 27 C20 20 21 15 18 10 Z" fill="url(#fiB)"/><path d="M4 10 C1 15 2 20 4 27 L18 27 C20 20 21 15 18 10 Z" fill="none" stroke="url(#fgB)" stroke-width="1.1"/><line x1="11" y1="10" x2="11" y2="27" stroke="rgba(201,168,76,.55)" stroke-width=".9"/><line x1="8" y1="11" x2="6" y2="26" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><line x1="14" y1="11" x2="16" y2="26" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><path d="M7 15 Q11 14 15 15" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><path d="M6 19 Q11 17 16 19" stroke="rgba(201,168,76,.5)" stroke-width=".8" fill="none"/><path d="M7 22 Q11 21 15 22" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><g transform="translate(11,19) rotate(22.5)"><polygon points="0,-3 1,-1 3,0 1,1 0,3 -1,1 -3,0 -1,-1" fill="rgba(255,220,70,.8)" stroke="rgba(201,168,76,.4)" stroke-width=".5"/></g><polygon points="11,27 6,29 8,27 14,27 16,29" fill="url(#fgB)"/><circle cx="11" cy="27" r="1.8" fill="#fff5c0"/><line x1="11" y1="29" x2="11" y2="38" stroke="url(#fgB)" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="11" cy="38" rx="2" ry="0" fill="url(#fgB)"/></svg></div><div class="l-glow"></div></div>
+    <div class="lantern" style="--ls:3.9s;--ld:.7s"><div class="l-str"></div><div class="l-ico"><svg width="28" height="46" viewBox="0 0 28 46" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fgA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff0a0"/><stop offset="35%" stop-color="#d4a020"/><stop offset="100%" stop-color="#7a4e00"/></linearGradient><radialGradient id="fiA" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="rgba(255,185,40,.44)"/><stop offset="100%" stop-color="rgba(200,120,0,0)"/></radialGradient></defs><line x1="14" y1="0" x2="14" y2="5" stroke="rgba(201,168,76,.75)" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="14" cy="5" rx="3" ry="2" fill="none" stroke="url(#fgA)" stroke-width="1.5"/><polygon points="14,7 7,10 11,12 17,12 21,10" fill="url(#fgA)"/><circle cx="14" cy="7" r="2" fill="#fff5c0"/><circle cx="7" cy="10" r="1.5" fill="#f5e090"/><circle cx="21" cy="10" r="1.5" fill="#f5e090"/><path d="M5 12 C2 18 3 25 5 33 L23 33 C25 25 26 18 23 12 Z" fill="url(#fiA)"/><path d="M5 12 C2 18 3 25 5 33 L23 33 C25 25 26 18 23 12 Z" fill="none" stroke="url(#fgA)" stroke-width="1.1"/><line x1="14" y1="12" x2="14" y2="33" stroke="rgba(201,168,76,.55)" stroke-width=".9"/><line x1="10" y1="13" x2="8" y2="32" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><line x1="18" y1="13" x2="20" y2="32" stroke="rgba(201,168,76,.35)" stroke-width=".6"/><path d="M8 18 Q14 17 20 18" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><path d="M7 23 Q14 21 21 23" stroke="rgba(201,168,76,.5)" stroke-width=".8" fill="none"/><path d="M8 27 Q14 26 20 27" stroke="rgba(201,168,76,.45)" stroke-width=".7" fill="none"/><g transform="translate(14,23) rotate(22.5)"><polygon points="0,-3 1,-1 3,0 1,1 0,3 -1,1 -3,0 -1,-1" fill="rgba(255,220,70,.8)" stroke="rgba(201,168,76,.4)" stroke-width=".5"/></g><polygon points="14,33 7,35 11,33 17,33 21,35" fill="url(#fgA)"/><circle cx="14" cy="33" r="1.8" fill="#fff5c0"/><line x1="14" y1="35" x2="14" y2="46" stroke="url(#fgA)" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="14" cy="46" rx="3" ry="1" fill="url(#fgA)"/></svg></div><div class="l-glow"></div></div>
   </div>
   <div class="hstar" style="top:62px;left:15%;font-size:11px;--d:2.1s;--dl2:0s">✦</div>
   <div class="hstar" style="top:74px;right:18%;font-size:13px;--d:3.2s;--dl2:1.1s">✦</div>
@@ -583,7 +621,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
   </div>
   <div class="hero-arabic-small">رَمَضَان مُبَارَك</div>
   <div class="hero-timing">
-    <div class="ht-box" id="ht-sehri">
+    <div class="ht-box" id="ht-sehri"><div class="geo-bg"></div>
       <div class="ht-lbl">🌙 SEHRI ENDS</div>
       <div class="ht-time" id="hi-sh">--:--</div>
       <div class="ht-divider"></div>
@@ -593,8 +631,9 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
       <div class="ht-moon">🌙</div>
       <div class="ht-roza" id="hi-roza">-- ROZA</div>
       <div class="ht-city">📍 <span id="hi-city">PUNE</span></div>
+      <div class="ht-wx" id="ht-wx"></div>
     </div>
-    <div class="ht-box" id="ht-iftar">
+    <div class="ht-box" id="ht-iftar"><div class="geo-bg"></div>
       <div class="ht-lbl">☀️ IFTAR TIME</div>
       <div class="ht-time" id="hi-if">--:--</div>
       <div class="ht-divider"></div>
@@ -627,11 +666,30 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 </div>
 
   <div class="sec-hdr">✦ TODAY'S TIMINGS ✦</div>
-  <div class="today-card">
+  <div class="today-card"><div class="geo-bg"></div>
     <div class="td-lbl">✦ <span id="roza-lbl">RAMADAN 1447 AH</span> ✦</div>
     <div class="td-date" id="td-date">Loading...</div>
     <div class="city-sw" id="city-sw"></div>
-    <div class="clock" id="clock">00:00:00</div>
+    <div class="roza-arc-wrap">
+    <svg class="roza-arc-svg" width="180" height="110" viewBox="0 0 180 110">
+      <defs><linearGradient id="arcG" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(138,96,24,.5)"/>
+        <stop offset="50%" stop-color="#c9a84c"/>
+        <stop offset="100%" stop-color="#f0d080"/>
+      </linearGradient></defs>
+      <path d="M16,102 A74,74 0 0,1 164,102" fill="none" stroke="rgba(201,168,76,.1)" stroke-width="12" stroke-linecap="round"/>
+      <path d="M16,102 A74,74 0 0,1 164,102" fill="none" stroke="url(#arcG)" stroke-width="12" stroke-linecap="round"
+        id="roza-arc-fg" stroke-dasharray="232" stroke-dashoffset="232" style="transition:stroke-dashoffset 1.4s cubic-bezier(.25,.8,.25,1)"/>
+      <circle cx="16" cy="102" r="5" fill="rgba(201,168,76,.35)"/>
+      <circle cx="164" cy="102" r="5" fill="rgba(201,168,76,.35)"/>
+    </svg>
+    <div class="roza-arc-inner">
+      <div class="roza-arc-num" id="rh-num">--</div>
+      <div class="roza-arc-lbl">ROZA</div>
+      <div class="roza-arc-sub" id="rh-pct">of 30</div>
+    </div>
+  </div>
+<div class="clock" id="clock">00:00:00</div>
     <div class="cd-lbl" id="cd-lbl">⏳ LOADING...</div>
     <div class="cd-row">
       <div class="cd-box"><div class="cd-n" id="cd-h">00</div><div class="cd-u">HRS</div></div>
@@ -720,6 +778,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
   </div>
   <div class="ts-wrap">
     <div class="ts-count" id="ts-cnt">0</div>
+    <div class="ts-beads-wrap" id="ts-beads-wrap"></div>
     <div class="ts-btn-big" id="ts-big" onclick="tapTs(event)">
       <div class="ts-tap-ar" id="ts-big-ar">سُبْحَانَ اللَّهِ</div>
       <div class="ts-tap-en" id="ts-big-en">SUBHANALLAH</div>
@@ -804,10 +863,11 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
   <div class="zk-field">
     <div class="zk-field-lbl">TOTAL AMOUNT (₹)</div>
     <input class="zk-inp2" type="number" id="z-cash" placeholder="e.g. 1,00,000" oninput="calcZ()">
+  <div id="z-cash-w" style="font-family:'EB Garamond',serif;font-style:italic;font-size:11px;color:rgba(201,168,76,.55);margin-top:3px;min-height:14px"></div>
   </div>
 </div>
 
-<!-- 2. GOLD -->
+<div id="zk-gold-rate-bar" style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:12px 14px;margin-bottom:12px"><div style="display:flex;align-items:center;gap:10px"><div style="flex:1"><div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;color:var(--gold);margin-bottom:3px">📡 LIVE RATES · <span id="zk-rate-city">YOUR CITY</span></div><div id="zk-rate-txt" style="font-family:'EB Garamond',serif;font-size:13px;color:var(--muted);line-height:1.4">Tap to auto-fill today's gold &amp; silver rates</div></div><button onclick="fetchGoldRate()" id="zk-fetch-btn" style="background:linear-gradient(135deg,#c9a84c,#f0d080);border:none;border-radius:10px;padding:9px 14px;font-family:'Cinzel',serif;font-size:9px;color:#040a14;cursor:pointer;font-weight:700;flex-shrink:0">📡 FETCH</button></div><div id="zk-rate-grid" style="display:none;margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center"><div style="background:rgba(201,168,76,.08);border-radius:8px;padding:6px 4px"><div style="font-family:'Cinzel',serif;font-size:8px;color:var(--muted)">24K</div><div id="zk-r24" style="font-family:'Cinzel',serif;font-size:13px;color:var(--goldl);font-weight:700">—</div><div style="font-size:9px;color:var(--muted)">/g</div></div><div style="background:rgba(201,168,76,.08);border-radius:8px;padding:6px 4px"><div style="font-family:'Cinzel',serif;font-size:8px;color:var(--muted)">22K</div><div id="zk-r22" style="font-family:'Cinzel',serif;font-size:13px;color:var(--goldl);font-weight:700">—</div><div style="font-size:9px;color:var(--muted)">/g</div></div><div style="background:rgba(201,168,76,.08);border-radius:8px;padding:6px 4px"><div style="font-family:'Cinzel',serif;font-size:8px;color:var(--muted)">18K</div><div id="zk-r18" style="font-family:'Cinzel',serif;font-size:13px;color:var(--goldl);font-weight:700">—</div><div style="font-size:9px;color:var(--muted)">/g</div></div><div style="background:rgba(155,127,212,.08);border-radius:8px;padding:6px 4px"><div style="font-family:'Cinzel',serif;font-size:8px;color:var(--muted)">SILVER</div><div id="zk-rsilver" style="font-family:'Cinzel',serif;font-size:13px;color:rgba(155,127,212,.9);font-weight:700">—</div><div style="font-size:9px;color:var(--muted)">/g</div></div></div></div><!-- 2. GOLD -->
 <div class="zk-asset-block">
   <div class="zk-asset-hdr">
     <div class="zk-asset-ic">🪙</div>
@@ -912,6 +972,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
   <div class="zk-field">
     <div class="zk-field-lbl">CURRENT MARKET VALUE (₹)</div>
     <input class="zk-inp2" type="number" id="z-inv" placeholder="e.g. 2,00,000" oninput="calcZ()">
+  <div id="z-inv-w" style="font-family:'EB Garamond',serif;font-style:italic;font-size:11px;color:rgba(201,168,76,.55);margin-top:3px;min-height:14px"></div>
   </div>
 </div>
 
@@ -925,6 +986,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
   <div class="zk-field">
     <div class="zk-field-lbl">AMOUNT (₹)</div>
     <input class="zk-inp2" type="number" id="z-recv" placeholder="e.g. 50,000" oninput="calcZ()">
+  <div id="z-recv-w" style="font-family:'EB Garamond',serif;font-style:italic;font-size:11px;color:rgba(201,168,76,.55);margin-top:3px;min-height:14px"></div>
   </div>
 </div>
 
@@ -942,7 +1004,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
     <span style="font-family:'Cinzel',serif;font-size:16px;color:rgba(76,175,125,.6);vertical-align:super">₹</span>
     <span class="zk-r-big" id="zk-total">0</span>
   </div>
-  <div id="zk-total-words" style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--muted);margin-top:4px"></div>
+  <div id="zk-total-words" style="font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:rgba(76,175,125,.85);margin-top:8px;min-height:20px;line-height:1.5;transition:all .3s"></div>
   <div class="zk-bd" id="zk-bd" style="margin-top:12px"></div>
   <button class="zk-rst" onclick="zReset()">↺ CLEAR ALL FIELDS</button>
 </div>
@@ -957,7 +1019,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
         <div class="qp-stat"><div class="qp-num" id="qp-left">30</div><div class="qp-lbl">REMAINING</div></div>
         <div class="qp-stat"><div class="qp-num" id="qp-pct">0%</div><div class="qp-lbl">COMPLETE</div></div>
       </div>
-      <div class="qp-pb"><div class="qp-pf" id="qp-pf" style="width:0%"></div></div>
+      <div class="qp-ring-wrap"><div class="qp-ring"><svg width="118" height="118" viewBox="0 0 118 118"><defs><linearGradient id="qpG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#4a9ebe"/><stop offset="100%" stop-color="rgba(155,127,212,.85)"/></linearGradient></defs><circle fill="none" stroke="rgba(74,158,190,.1)" stroke-width="10" cx="59" cy="59" r="48"/><circle fill="none" stroke="url(#qpG)" stroke-width="10" stroke-linecap="round" cx="59" cy="59" r="48" stroke-dasharray="301.6" stroke-dashoffset="301.6" id="qp-ring-fg" style="transition:stroke-dashoffset .8s cubic-bezier(.25,.8,.25,1)"/></svg><div class="qp-ring-ctr"><div class="qp-ring-pct" id="qp-pct">0%</div><div class="qp-ring-sub">DONE</div></div></div></div>
       <div class="qp-hint">Tap each Juz to mark as completed ✨</div>
       <div class="qp-grid" id="qp-grid"></div>
       <button class="qp-reset" onclick="qpReset()">↺ RESET ALL</button>
@@ -1110,7 +1172,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
       <div class="ashra-num">1ST</div>
       <div class="ashra-info"><div class="ashra-title">RAHMAH · MERCY</div><div class="ashra-days">Days 1 – 10</div></div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌿 DUA OF THE FIRST ASHRA</div>
       <div class="dc2-ar">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ</div>
       <div class="dc2-tr">Ya Hayyu Ya Qayyumu bi rahmatika astagheeth</div>
@@ -1121,7 +1183,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
       <div class="ashra-num">2ND</div>
       <div class="ashra-info"><div class="ashra-title">MAGHFIRAH · FORGIVENESS</div><div class="ashra-days">Days 11 – 20</div></div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🔥 DUA OF THE SECOND ASHRA</div>
       <div class="dc2-ar">أَسْتَغْفِرُ اللَّهَ رَبِّي مِنْ كُلِّ ذَنْبٍ وَأَتُوبُ إِلَيْهِ</div>
       <div class="dc2-tr">Astaghfiru Allaha Rabbi min kulli zambin wa atubu ilayh</div>
@@ -1132,7 +1194,7 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
       <div class="ashra-num">3RD</div>
       <div class="ashra-info"><div class="ashra-title">NIJAT · SALVATION</div><div class="ashra-days">Days 21 – 30</div></div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🛡️ DUA OF THE THIRD ASHRA</div>
       <div class="dc2-ar">اللَّهُمَّ أَجِرْنِي مِنَ النَّارِ</div>
       <div class="dc2-tr">Allahumma ajirni minan-nar</div>
@@ -1143,55 +1205,55 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 
   <!-- ── DAILY DUAS ── -->
   <div class="dua-cat" id="dcat-daily" style="display:none">
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌙 SEHRI NIYYAH</div>
       <div class="dc2-ar">وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ</div>
       <div class="dc2-tr">Wa bisawmi ghadin nawaytu min shahri Ramadan</div>
       <div class="dc2-me">"I intend to keep the fast tomorrow in the month of Ramadan."</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">☀️ IFTAR DUA</div>
       <div class="dc2-ar">اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div>
       <div class="dc2-tr">Allahumma laka sumtu wa ala rizqika aftartu</div>
       <div class="dc2-me">"O Allah, for You I have fasted and with Your provision I break my fast."</div>
       <div class="dc2-src">— Abu Dawud 2358</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌅 DUA IN THE MORNING (SABAH)</div>
       <div class="dc2-ar">اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</div>
       <div class="dc2-tr">Allahumma bika asbahnaa wa bika amsaynaa wa bika nahyaa wa bika namootu wa ilaykan-nushoor</div>
       <div class="dc2-me">"O Allah, by You we enter the morning and by You we enter the evening, by You we live and by You we die, and to You is the resurrection."</div>
       <div class="dc2-src">— Abu Dawud 5068</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌙 DUA IN THE EVENING (MASA)</div>
       <div class="dc2-ar">اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ الْمَصِيرُ</div>
       <div class="dc2-tr">Allahumma bika amsaynaa wa bika asbahnaa wa bika nahyaa wa bika namootu wa ilaykal-maseer</div>
       <div class="dc2-me">"O Allah, by You we enter the evening and by You we enter the morning, by You we live and by You we die, and to You is the final return."</div>
       <div class="dc2-src">— Abu Dawud 5068</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">😴 BEFORE SLEEPING</div>
       <div class="dc2-ar">بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا</div>
       <div class="dc2-tr">Bismika Allahumma amootu wa ahyaa</div>
       <div class="dc2-me">"In Your name, O Allah, I die and I live."</div>
       <div class="dc2-src">— Bukhari 6312</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌄 WAKING UP</div>
       <div class="dc2-ar">الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ</div>
       <div class="dc2-tr">Alhamdulillahil-ladhi ahyaana ba'da ma amaatana wa ilayhin-nushoor</div>
       <div class="dc2-me">"Praise be to Allah who gave us life after causing us to die, and to Him is the resurrection."</div>
       <div class="dc2-src">— Bukhari 6312</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🍽️ BEFORE EATING</div>
       <div class="dc2-ar">بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ</div>
       <div class="dc2-tr">Bismillahi wa ala barakatillah</div>
       <div class="dc2-me">"In the name of Allah and with the blessings of Allah."</div>
       <div class="dc2-src">— Abu Dawud 3767</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🚪 LEAVING HOME</div>
       <div class="dc2-ar">بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</div>
       <div class="dc2-tr">Bismillahi tawakkaltu 'alallahi wa la hawla wa la quwwata illa billah</div>
@@ -1208,35 +1270,35 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
       <div class="dc2-tr">Subhana Dhil Mulki wal Malakut, Subhana Dhil Izzati wal Azhamati wal Haibati wal Qudrati wal Kibriya'i wal Jabarut. Subhanal Malikil Hayyil Ladhi la yanamu wa la yamut.</div>
       <div class="dc2-me">"Glory be to the Owner of kingdoms and dominions. Glory be to the Owner of might, greatness, awe, power, pride and grandeur. Glory be to the Eternal Living King who neither sleeps nor dies."</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🕌 ENTERING MOSQUE</div>
       <div class="dc2-ar">اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
       <div class="dc2-tr">Allahummaf-tah li abwaba rahmatik</div>
       <div class="dc2-me">"O Allah, open the gates of Your mercy for me."</div>
       <div class="dc2-src">— Muslim 713</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🚶 LEAVING MOSQUE</div>
       <div class="dc2-ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ</div>
       <div class="dc2-tr">Allahumma inni as'aluka min fadlik</div>
       <div class="dc2-me">"O Allah, I ask You of Your bounty."</div>
       <div class="dc2-src">— Muslim 713</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">📿 SAYYIDUL ISTIGHFAR</div>
       <div class="dc2-ar">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ</div>
       <div class="dc2-tr">Allahumma anta Rabbi la ilaha illa anta, Khalaqtani wa ana abduka, wa ana ala ahdika wa wa'dika mastata'tu, a'udhu bika min sharri ma sana'tu</div>
       <div class="dc2-me">"O Allah, You are my Lord. None has the right to be worshipped but You. You created me and I am Your servant, and I abide by Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done."</div>
       <div class="dc2-src">— Bukhari 6306</div>
     </div>
-    <div class="dua-card2">
-      <div class="dc2-lbl">🙏 AFTER SALAH (TASBEEH)</div>
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
+      <div class="dc2-lbl">✦ AFTER SALAH (TASBEEH)</div>
       <div class="dc2-ar">سُبْحَانَ اللَّهِ × ٣٣ · الْحَمْدُ لِلَّهِ × ٣٣ · اللَّهُ أَكْبَرُ × ٣٣</div>
       <div class="dc2-tr">Subhanallah × 33 · Alhamdulillah × 33 · Allahu Akbar × 33</div>
       <div class="dc2-me">"Glory be to Allah (33×), Praise be to Allah (33×), Allah is the Greatest (33×) — completing to 100 with: La ilaha illallahu wahdahu la sharika lahu, lahul mulku wa lahul hamdu, wa huwa ala kulli shay'in qadir."</div>
       <div class="dc2-src">— Muslim 597</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">📖 DUA BEFORE QURAN RECITATION</div>
       <div class="dc2-ar">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
       <div class="dc2-tr">A'udhu billahi minash-shaytanir rajeem</div>
@@ -1254,34 +1316,34 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
       <div class="dc2-me">"O Allah, You are Forgiving and You love forgiveness, so forgive me."</div>
       <div class="dc2-src">— Tirmidhi 3513 · Sahih</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌙 DUA TO SEE RAMADAN</div>
       <div class="dc2-ar">اللَّهُمَّ بَلِّغْنَا رَمَضَانَ وَتَقَبَّلْ مِنَّا صِيَامَنَا وَقِيَامَنَا</div>
       <div class="dc2-tr">Allahumma ballighna Ramadana wa taqabbal minna siyamana wa qiyamana</div>
       <div class="dc2-me">"O Allah, let us reach Ramadan and accept our fasting and our night prayers."</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🤲 ACCEPTANCE OF DEEDS</div>
       <div class="dc2-ar">رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ</div>
       <div class="dc2-tr">Rabbana taqabbal minna innaka antas-sami'ul 'aleem</div>
       <div class="dc2-me">"Our Lord, accept from us. Indeed, You are the Hearing, the Knowing."</div>
       <div class="dc2-src">— Quran 2:127</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">💎 DUA FOR JANNAH</div>
       <div class="dc2-ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ</div>
       <div class="dc2-tr">Allahumma inni as'alukal-jannata wa a'udhu bika minan-nar</div>
       <div class="dc2-me">"O Allah, I ask You for Paradise and I seek refuge with You from the Fire."</div>
       <div class="dc2-src">— Abu Dawud 792</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌟 DUA FOR TAQWA</div>
       <div class="dc2-ar">اللَّهُمَّ آتِ نَفْسِي تَقْوَاهَا وَزَكِّهَا أَنتَ خَيْرُ مَن زَكَّاهَا</div>
       <div class="dc2-tr">Allahumma ati nafsi taqwaha wa zakkiha anta khayru man zakkaha</div>
       <div class="dc2-me">"O Allah, grant my soul its piety and purify it, for You are the best of those who purify it."</div>
       <div class="dc2-src">— Muslim 2722</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🤲 ENDING RAMADAN</div>
       <div class="dc2-ar">اللَّهُمَّ تَقَبَّلْ مِنَّا صِيَامَنَا وَقِيَامَنَا وَرُكُوعَنَا وَسُجُودَنَا</div>
       <div class="dc2-tr">Allahumma taqabbal minna siyamana wa qiyamana wa ruku'ana wa sujoodana</div>
@@ -1291,49 +1353,49 @@ body{background:var(--bg);font-family:"EB Garamond",serif;color:var(--cream);dis
 
   <!-- ── LIFE DUAS ── -->
   <div class="dua-cat" id="dcat-life" style="display:none">
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">😰 DUA IN DISTRESS</div>
       <div class="dc2-ar">لَا إِلَهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ</div>
       <div class="dc2-tr">La ilaha illa anta subhanaka inni kuntu minadh-dhalimeen</div>
       <div class="dc2-me">"There is no god but You, glorified be You. Truly I have been of the wrongdoers." (Dua of Prophet Yunus AS)</div>
       <div class="dc2-src">— Quran 21:87 · Tirmidhi 3505</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">💚 DUA FOR HEALTH</div>
       <div class="dc2-ar">اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي</div>
       <div class="dc2-tr">Allahumma 'afini fi badani, Allahumma 'afini fi sam'i, Allahumma 'afini fi basari</div>
       <div class="dc2-me">"O Allah, grant health to my body. O Allah, grant health to my hearing. O Allah, grant health to my eyesight."</div>
       <div class="dc2-src">— Abu Dawud 5090</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">💰 DUA FOR RIZQ (PROVISION)</div>
       <div class="dc2-ar">اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّن سِوَاكَ</div>
       <div class="dc2-tr">Allahummak-fini bihalalika 'an haramika wa aghnini bifadlika 'amman siwak</div>
       <div class="dc2-me">"O Allah, suffice me with what You have made lawful so I have no need of what You have made unlawful, and make me independent of all others through Your bounty."</div>
       <div class="dc2-src">— Tirmidhi 3563</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🧠 DUA FOR KNOWLEDGE</div>
       <div class="dc2-ar">رَبِّ زِدْنِي عِلْمًا</div>
       <div class="dc2-tr">Rabbi zidni 'ilma</div>
       <div class="dc2-me">"My Lord, increase me in knowledge."</div>
       <div class="dc2-src">— Quran 20:114</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">😟 DUA FOR ANXIETY & GRIEF</div>
       <div class="dc2-ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ</div>
       <div class="dc2-tr">Allahumma inni a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali</div>
       <div class="dc2-me">"O Allah, I seek refuge in You from worry and grief, from incapacity and laziness."</div>
       <div class="dc2-src">— Bukhari 2893</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🌈 DUA FOR GUIDANCE</div>
       <div class="dc2-ar">اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي</div>
       <div class="dc2-tr">Allahumma-hdini wa saddidni</div>
       <div class="dc2-me">"O Allah, guide me and keep me on the straight path."</div>
       <div class="dc2-src">— Muslim 2725</div>
     </div>
-    <div class="dua-card2">
+    <div class="dua-card2"><span class="dc-tl"></span><span class="dc-tr"></span><span class="dc-bl"></span><span class="dc-br"></span>
       <div class="dc2-lbl">🔒 DUA FOR PROTECTION (MORNING)</div>
       <div class="dc2-ar">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</div>
       <div class="dc2-tr">Bismillahil-ladhi la yadurru ma'asmihi shay'un fil-ardi wa la fis-sama'i wa huwas-sami'ul-'aleem</div>
@@ -1605,10 +1667,22 @@ function setText(id,v){const e=$(id);if(e)e.textContent=v;}
 function setHTML(id,v){const e=$(id);if(e)e.innerHTML=v;}
 
 function initStars(){
-  const c=$("stars");
-  for(let i=0;i<130;i++){const s=document.createElement("div");s.className="star";const sz=Math.random()*2.2+0.4;s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${1.8+Math.random()*4}s;--o:${0.3+Math.random()*0.7};animation-delay:${Math.random()*7}s`;c.appendChild(s);}
-  for(let i=0;i<5;i++){const ss=document.createElement("div");ss.className="shoot";const a=(28+Math.random()*22)*Math.PI/180,dist=180+Math.random()*200;ss.style.cssText=`left:${5+Math.random()*55}%;top:${3+Math.random()*28}%;--sd:${7+Math.random()*9}s;--dl:${i*2.5+Math.random()*4}s;--dx:${Math.cos(a)*dist};--dy:${Math.sin(a)*dist};--tl:${35+Math.random()*55}px`;c.appendChild(ss);}
-  for(let i=0;i<22;i++){const p=document.createElement("div");p.className="noor";p.style.cssText=`left:${Math.random()*100}%;bottom:${Math.random()*50}%;--rd:${3+Math.random()*5}s;--rl:${Math.random()*7}s`;c.appendChild(p);}
+  const c=$("stars");if(!c)return;
+  for(let i=0;i<200;i++){
+    const t=["sw","sw","sw","sg","sg","sb"][Math.floor(Math.random()*6)];
+    const s=document.createElement("div");s.className="star "+t;
+    const sz=Math.random()*(t==="sg"?2.7:t==="sb"?2.1:1.9)+0.3;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*88}%;--d:${1.5+Math.random()*5}s;--o:${0.35+Math.random()*0.7};--dl:${Math.random()*8}s`;
+    c.appendChild(s);
+  }
+  function shoot(){
+    const ss=document.createElement("div");ss.className="shoot";
+    const a=(22+Math.random()*28)*Math.PI/180,dist=190+Math.random()*150;
+    ss.style.cssText=`left:${5+Math.random()*72}%;top:${2+Math.random()*36}%;--sd:${0.65+Math.random()*0.55}s;--dl:0s;--dx:${Math.cos(a)*dist}px;--dy:${Math.sin(a)*dist}px;opacity:1`;
+    c.appendChild(ss);setTimeout(()=>ss.remove(),1300);
+    setTimeout(shoot,8000+Math.random()*10000);
+  }
+  setTimeout(shoot,3500);
 }
 
 function geoDetectCity(){
@@ -1671,7 +1745,7 @@ function buildCitySw(pfx){
   const el=$(pfx+"-sw");if(!el)return;
   el.innerHTML=CITIES.map(c=>`<div class="cbtn${c.n===city.n?" on":""}" onclick="switchCity('${c.n}','${pfx}')">${c.n}</div>`).join("");
 }
-function switchCity(name,pfx){
+function switchCity(name,pfx){setTimeout(fetchWeather,600);
   city=CITIES.find(c=>c.n===name)||CITIES[0];
   buildCitySw("city");buildCitySw("sc");
   renderCities();renderSched();updatePrayers();
@@ -1758,7 +1832,14 @@ function tapTs(e){
   const rc=btn.getBoundingClientRect();
   r.style.cssText=`left:${(e.clientX||rc.left+rc.width/2)-rc.left}px;top:${(e.clientY||rc.top+rc.height/2)-rc.top}px`;
   btn.appendChild(r);setTimeout(()=>r.remove(),700);
-  if(tsCounts[tsMode]%33===0&&navigator.vibrate)navigator.vibrate([50,30,50,30,100]);
+  if(tsCounts[tsMode]%33===0){
+    if(navigator.vibrate)navigator.vibrate([50,30,50,30,100]);
+    var _c=tsCounts[tsMode]%99;
+    var _mm={33:{ar:"سُبْحَانَ اللّٰهِ",en:"SUBHANALLAH"},66:{ar:"الْحَمْدُ لِلّٰهِ",en:"ALHAMDULILLAH"},0:{ar:"اللّٰهُ أَكْبَرُ",en:"ALLAHU AKBAR"}};
+    var _m=_mm[_c===0?0:_c];if(_m){var _el=document.createElement("div");_el.className="ts-ms";
+      _el.innerHTML='<div class="ts-ms-inner"><div class="ts-ms-ar">'+_m.ar+'</div><div class="ts-ms-en">✦ '+_m.en+' ✦</div></div>';
+      document.body.appendChild(_el);setTimeout(function(){if(_el.parentNode)_el.parentNode.removeChild(_el);},1200);}
+  }
   updTs();
 }
 function updTs(){
@@ -1768,6 +1849,14 @@ function updTs(){
   const tspf=$("ts-pf");if(tspf)tspf.style.width=(inSet===0&&c>0?100:Math.min(100,inSet*100/tsGoal))+"%";
   setText("ts-info",`${inSet} / ${tsGoal} · Sets: ${sets} · Total: ${c}`);
   for(let i=0;i<3;i++)setText("ts-t"+i,tsCounts[i]);
+  var bW=document.getElementById("ts-beads-wrap");
+  if(bW){var cnt=tsCounts[tsMode],cyc=cnt%99,fil=cyc===0&&cnt>0?99:cyc,html="";
+    [0,1,2].forEach(function(row){html+='<div class="ts-bead-row">';
+      if(row>0)html+='<div class="ts-bead-big'+(fil>row*11?" on":"")+'"></div>';
+      for(var b=0;b<11;b++)html+='<div class="ts-bead'+(fil>(row*11+b)?" on":"")+'"></div>';
+      if(row<2)html+='<div class="ts-bead-big'+(fil>=(row+1)*11?" on":"")+'"></div>';
+      html+='</div>';});bW.innerHTML=html;}
+
 }
 function tsUndo(){if(tsCounts[tsMode]>0){tsCounts[tsMode]--;updTs();}}
 function tsReset(){tsCounts[tsMode]=0;updTs();}
@@ -1786,11 +1875,15 @@ function fmtINR(n){
 }
 // Helper: convert number to readable words (crore/lakh)
 function numWords(n){
-  if(n<=0)return"";
-  if(n>=10000000)return(n/10000000).toFixed(2).replace(/\.?0+$/,"")+" Crore";
-  if(n>=100000)return(n/100000).toFixed(2).replace(/\.?0+$/,"")+" Lakh";
-  if(n>=1000)return(n/1000).toFixed(1).replace(/\.?0+$/,"")+" Thousand";
-  return"₹"+fmtINR(n);
+  if(!n||n<=0)return"";
+  var o=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
+  var t=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];
+  function w(x){if(!x)return"";if(x<20)return o[x];if(x<100)return t[Math.floor(x/10)]+(x%10?" "+o[x%10]:"");return o[Math.floor(x/100)]+" Hundred"+(x%100?" and "+w(x%100):"");}
+  var r=Math.round(n),p=[];
+  if(r>=10000000){p.push(w(Math.floor(r/10000000))+" Crore");r%=10000000;}
+  if(r>=100000){p.push(w(Math.floor(r/100000))+" Lakh");r%=100000;}
+  if(r>=1000){p.push(w(Math.floor(r/1000))+" Thousand");r%=1000;}
+  if(r>0)p.push(w(r));return p.join(" ");
 }
 
 function calcZ(){
@@ -1920,7 +2013,9 @@ function calcZ(){
 
   // Display total
   setText("zk-total",(nisabMet&&total>0)?fmtINR(zakat):"0");
-  setText("zk-total-words",(nisabMet&&zakat>0)?"₹ "+numWords(zakat)+" due":"");
+  setText("zk-total-words",(nisabMet&&zakat>0)?"Rupees "+numWords(zakat)+" Only":"");
+  var _fw=function(id,wid){var v=parseFloat(document.getElementById(id)&&document.getElementById(id).value)||0;var wd=document.getElementById(wid);if(wd)wd.textContent=v>=1000?numWords(v)+" Rupees":"";};
+  _fw("z-cash","z-cash-w");_fw("z-inv","z-inv-w");_fw("z-recv","z-recv-w");
 
   // Breakdown — show each gold karat separately
   var items=[];
@@ -1968,7 +2063,7 @@ function tick(){
   if(ri>=0){
     const rn=ri+1;
     setText("roza-lbl",`TODAY · ${rn}${["","ST","ND","RD"][rn]||"TH"} ROZA · RAMADAN 1447 AH`);
-    setText("rh-num",ORD[rn]);
+    setText("rh-num",String(rn));var _arc=document.getElementById("roza-arc-fg");if(_arc)_arc.style.strokeDashoffset=String(Math.round(232*(1-rn/30)));
     const pct=Math.round((rn/30)*100);
     setText("rh-pct",`${pct}% complete`);
     // mfill removed
@@ -2005,6 +2100,10 @@ function tick(){
   setText("cd-h",String(Math.floor(diff/3600)).padStart(2,"0"));
   setText("cd-m",String(Math.floor((diff%3600)/60)).padStart(2,"0"));
   setText("cd-s",String(diff%60).padStart(2,"0"));
+  // Celebration — placed here so diff is fully computed (fixes LOADING bug)
+  if(nowS<90)_cel.s={};
+  if(diff===0&&pastI&&!_cel.s.iftar)showCelebration("iftar");
+  else if(!pastS&&diff>0&&diff<=300&&!_cel.s.sehri)showCelebration("sehri");
 
   // Active prayer highlight
   const dS=city.dh[0]*3600+city.dh[1]*60,aS=city.as[0]*3600+city.as[1]*60,isS=city.is[0]*3600+city.is[1]*60;
@@ -2101,8 +2200,7 @@ function qpBuild(){
   setText("qp-done",String(done));
   setText("qp-left",String(30-done));
   setText("qp-pct",Math.round(done/30*100)+"%");
-  var pf=document.getElementById("qp-pf");
-  if(pf)pf.style.width=Math.round(done/30*100)+"%";
+  var _ring=document.getElementById("qp-ring-fg");if(_ring)_ring.style.strokeDashoffset=String(301.6*(1-done/30));
 }
 function qpToggle(i){
   qpData[i]=!qpData[i];
@@ -2568,6 +2666,23 @@ document.addEventListener("DOMContentLoaded",function(){
 
 <!-- PWA SERVICE WORKER + INSTALL BANNER -->
 <script>
+var _cel={s:{}};
+function showCelebration(type){
+  if(_cel.s[type])return;_cel.s[type]=true;
+  if(navigator.vibrate)navigator.vibrate(type==="iftar"?[120,60,120,60,220]:[80,40,80]);
+  var ov=document.createElement("div");ov.className="cel-ov";
+  var isI=type==="iftar";
+  var ar=isI?"اللَّهُ أَكْبَرُ<br><small style='font-size:28px'>إِفْطَار مُبَارَك</small>":"وَقْتُ السَّحُور<br><small style='font-size:26px'>خَمْسُ دَقَائِقَ</small>";
+  ov.innerHTML='<div class="cel-bg"></div><div class="cel-body"><span class="cel-star">✦ ✦ ✦</span><div class="cel-ar">'+ar+'</div><div class="cel-en">'+(isI?"ALLAHU AKBAR · IFTAR MUBARAK":"SEHRI ENDS IN 5 MINUTES")+'</div></div>';
+  var cols=["#f0d070","#fff9c0","#ffd700","#4a9ebe","#fff"];
+  for(var p=0;p<24;p++){var el=document.createElement("div");el.className="cel-par";var a=Math.random()*Math.PI*2,d=70+Math.random()*130;
+    el.style.cssText="left:50%;top:50%;background:"+cols[p%5]+";--px:"+Math.round(Math.cos(a)*d)+"px;--py:"+Math.round(Math.sin(a)*d)+"px;--pt:"+(0.8+Math.random()*.9)+"s;--pd:"+(Math.random()*.4)+"s";ov.appendChild(el);}
+  document.body.appendChild(ov);
+  setTimeout(function(){ov.style.transition="opacity .4s";ov.style.opacity="0";setTimeout(function(){ov.remove();},400);},3200);
+}
+(function(){var sc=document.querySelector(".content")||document.querySelector(".app");if(!sc)return;var tk=false;sc.addEventListener("scroll",function(){if(tk)return;tk=true;requestAnimationFrame(function(){var sy=sc.scrollTop;var ln=document.querySelector(".hero-lanterns"),mo=document.querySelector(".ht-moon"),st=document.getElementById("stars");if(ln)ln.style.transform="translateY("+Math.round(sy*.2)+"px)";if(mo)mo.style.transform="translateY("+Math.round(sy*.09)+"px)";if(st)st.style.transform="translateX(-50%) translateY("+Math.round(sy*.05)+"px)";tk=false;});},{passive:true});})();
+var _wxC="";function fetchWeather(){var crd={PUNE:{la:18.52,lo:73.86},MUMBAI:{la:19.08,lo:72.88},DELHI:{la:28.70,lo:77.10},HYDERABAD:{la:17.39,lo:78.49},LUCKNOW:{la:26.85,lo:80.95},BANGALORE:{la:12.97,lo:77.59},CHENNAI:{la:13.08,lo:80.27},KOLKATA:{la:22.57,lo:88.36}};var cn=city&&city.n?city.n:"PUNE",c=crd[cn];if(!c)return;fetch("https://api.open-meteo.com/v1/forecast?latitude="+c.la+"&longitude="+c.lo+"&current=temperature_2m,weathercode&timezone=Asia%2FKolkata&forecast_days=1").then(function(r){return r.json();}).then(function(d){var t=Math.round(d.current.temperature_2m),wc=d.current.weathercode;var ic={0:"☀️",1:"🌤️",2:"⛅",3:"☁️",45:"🌫️",61:"🌧️",80:"🌦️",95:"⛈️"};var w=(ic[wc]||"🌡️")+" "+t+"°C",el=document.getElementById("ht-wx");if(el&&w!==_wxC){el.textContent=w;_wxC=w;}}).catch(function(){});}setTimeout(fetchWeather,1800);
+function fetchGoldRate(){var btn=document.getElementById("zk-fetch-btn"),txt=document.getElementById("zk-rate-txt"),grid=document.getElementById("zk-rate-grid"),cl=document.getElementById("zk-rate-city");var cn=city&&city.n?city.n:"INDIA";if(cl)cl.textContent=cn;var adj={PUNE:1.000,MUMBAI:1.002,DELHI:1.003,HYDERABAD:1.001,LUCKNOW:1.002,BANGALORE:1.000,CHENNAI:1.001,KOLKATA:1.002}[cn]||1.000;var dow=new Date().getDay(),mktW="";if(dow===0)mktW="⚠️ MCX closed Sundays";else if(dow===6)mktW="⚠️ MCX closes early Saturdays";if(btn){btn.textContent="⏳";btn.disabled=true;}if(txt)txt.textContent="Fetching live rates...";fetch("https://api.metals.live/v1/spot").then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(metals){var gU=0,sU=0;metals.forEach(function(m){if(m.gold)gU=m.gold;if(m.silver)sU=m.silver;});if(!gU)throw new Error("No data");return fetch("https://open.er-api.com/v6/latest/USD").then(function(r2){return r2.json();}).then(function(fx){var inr=fx.rates&&fx.rates.INR?fx.rates.INR:85,troy=31.1035;var base=(gU/troy)*inr*1.03*adj,silv=(sU/troy)*inr*1.03*adj;var r24=Math.round(base),r22=Math.round(base*22/24),r18=Math.round(base*18/24),rS=Math.round(silv);var st=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};st("zk-r24","₹"+r24.toLocaleString("en-IN"));st("zk-r22","₹"+r22.toLocaleString("en-IN"));st("zk-r18","₹"+r18.toLocaleString("en-IN"));st("zk-rsilver","₹"+rS.toLocaleString("en-IN"));if(grid)grid.style.display="grid";var fill=function(id,val){var e=document.getElementById(id);if(e&&!e.value)e.value=val;};fill("z-g24-rate",r24);fill("z-g22-rate",r22);fill("z-g18-rate",r18);fill("z-s-rate",rS);var msg="✅ "+cn+(mktW?"<br><span style='font-size:11px;color:rgba(255,200,50,.75)'>"+mktW+"</span>":"")+"<br><span style='font-size:10px;opacity:.4'>metals.live · ₹"+Math.round(inr)+"/USD</span>";if(txt)txt.innerHTML=msg;if(btn){btn.textContent="🔄";btn.disabled=false;}calcZ();});}).catch(function(e){var msg=e.message||"Error";if(msg.indexOf("fetch")>=0||msg.indexOf("Network")>=0)msg="📵 No internet — enter rates manually";else if(dow===0)msg="📅 MCX closed Sundays";if(txt)txt.innerHTML='<span style="color:rgba(255,150,50,.85)">⚠️ '+msg+'</span>';if(btn){btn.textContent="↺ RETRY";btn.disabled=false;}});}
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('sw.js')
