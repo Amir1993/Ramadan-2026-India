@@ -238,6 +238,42 @@ const INIT_FLATS=[
 // ════════════════════════════════════════════════════
 // LS = DB (defined above)
 
+
+// ════════════════════════════════════════════════════
+// EXPENSE PRESETS — predefined categories & common items
+// Based on actual society register data
+// ════════════════════════════════════════════════════
+const EXP_PRESETS = [
+  {
+    cat:'Security 🔒', color:'#f0fdf4', bg:'#dcfce7',
+    items:['Watchman Salary','Watchman Advance','Watchman Gas Refill','Security Material']
+  },
+  {
+    cat:'Cleaning 🧹', color:'#e0f2fe', bg:'#bae6fd',
+    items:['Cleaning Material','Sweeper/Bai Salary','Garbage Disposal','Common Area Cleaning']
+  },
+  {
+    cat:'Water 💧', color:'#eff6ff', bg:'#dbeafe',
+    items:['Water Tanker','Water Connection Repair','Plumber Charges','Motor Repair','Water Tank Cleaning']
+  },
+  {
+    cat:'Electricity ⚡', color:'#fefce8', bg:'#fef9c3',
+    items:['Electricity Bill','Lobby Light','Staircase Light','Electrical Material','Bell Repair','Meter Charges']
+  },
+  {
+    cat:'Repair 🔧', color:'#fef2f2', bg:'#fee2e2',
+    items:['Plumbing Repair','Wall Repair','Door/Lock Repair','Lift Repair','Pump Repair','Gate Repair','Painting']
+  },
+  {
+    cat:'Admin 📋', color:'#faf5ff', bg:'#f3e8ff',
+    items:['Printing/Stationery','Bank Charges','Municipal Tax','Property Tax','Registration Charges']
+  },
+  {
+    cat:'Miscellaneous 📦', color:'#f9fafb', bg:'#f3f4f6',
+    items:['Other Expense']
+  },
+];
+
 // ════════════════════════════════════════════════════
 // GLOBAL STATE
 // ════════════════════════════════════════════════════
@@ -249,6 +285,7 @@ const S={
   fq:'',ry:now.getFullYear(),
   toast:null,_toastT:null,
   _waIdx:0,_waBills:[],_waDone:[],
+  expFilter:{month:now.getMonth()+1,year:now.getFullYear()},
 };
 
 function loadData(){
@@ -536,9 +573,10 @@ function renderLogin(){
 function renderApp(){
   const tabs=[
     {id:'dashboard',l:'Home',ic:'<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'},
-    {id:'flats',l:'Flats',ic:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>'},
     {id:'bills',l:'Bills',ic:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'},
+    {id:'expenses',l:'Expenses',ic:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>'},
     {id:'reports',l:'Reports',ic:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>'},
+    {id:'flats',l:'Flats',ic:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>'},
   ];
   const tbar=tabs.map(t=>`<button class="tb ${S.tab===t.id?'on':''}" data-action="tab" data-tab="${t.id}"><svg viewBox="0 0 24 24">${t.ic}</svg>${t.l}</button>`).join('');
   let content='';
@@ -546,6 +584,7 @@ function renderApp(){
   else if(S.tab==='flats')content=renderFlats();
   else if(S.tab==='bills')content=renderBills();
   else if(S.tab==='reports')content=renderReports();
+  else if(S.tab==='expenses')content=renderExpenses();
   else if(S.tab==='settings')content=renderSettings();
   const modal=S.modal?`<div class="mov" id="modal-ov">${renderModal()}</div>`:'';
   const toast=S.toast?`<div class="toast t${S.toast.type}">${esc(S.toast.msg)}</div>`:'';
@@ -721,6 +760,129 @@ ${def.length?`<div class="crd"><div style="display:flex;justify-content:space-be
 // ════════════════════════════════════════════════════
 // RENDER — SETTINGS
 // ════════════════════════════════════════════════════
+function renderExpenses(){
+  const em = S.expFilter||{month:now.getMonth()+1, year:now.getFullYear()};
+  const allYrs=[...new Set([...(S.expenses||[]).map(e=>new Date(e.date).getFullYear()),now.getFullYear()])].sort((a,b)=>b-a);
+  const yrs = allYrs.length ? allYrs : [now.getFullYear()];
+
+  // Filter expenses
+  const filtered = (S.expenses||[]).filter(e=>{
+    const d=new Date(e.date);
+    return d.getMonth()+1===em.month && d.getFullYear()===em.year;
+  }).sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+  const totalExp = filtered.reduce((s,e)=>s+e.amount,0);
+
+  // Group by category
+  const byCat = {};
+  filtered.forEach(e=>{
+    if(!byCat[e.category]) byCat[e.category]=[];
+    byCat[e.category].push(e);
+  });
+
+  // Category totals
+  const catTotals = Object.entries(byCat).map(([cat,items])=>({
+    cat, total:items.reduce((s,e)=>s+e.amount,0), count:items.length
+  })).sort((a,b)=>b.total-a.total);
+
+  // Collected this month for balance
+  const collected = S.bills.filter(b=>b.month===em.month&&b.year===em.year&&b.status==='paid')
+    .reduce((s,b)=>s+b.amount,0);
+  const balance = collected - totalExp;
+
+  const catEmoji = {
+    'Security 🔒':'🔒','Cleaning 🧹':'🧹','Water 💧':'💧',
+    'Electricity ⚡':'⚡','Repair 🔧':'🔧','Admin 📋':'📋','Miscellaneous 📦':'📦',
+    // legacy
+    'Security':'🔒','Cleaning':'🧹','Water':'💧','Electricity':'💡','Repair':'🔧','Miscellaneous':'📦'
+  };
+  const catBg = {
+    'Security 🔒':'#f0fdf4','Cleaning 🧹':'#e0f2fe','Water 💧':'#eff6ff',
+    'Electricity ⚡':'#fefce8','Repair 🔧':'#fef2f2','Admin 📋':'#faf5ff','Miscellaneous 📦':'#f9fafb',
+    'Security':'#f0fdf4','Cleaning':'#e0f2fe','Water':'#eff6ff','Electricity':'#fefce8','Repair':'#fef2f2','Miscellaneous':'#f9fafb'
+  };
+
+  // Build expense list rows
+  const expRows = filtered.map(e=>`
+    <div class="li" style="align-items:flex-start;padding:10px 0">
+      <div style="width:38px;height:38px;border-radius:10px;background:${catBg[e.category]||'#f3f4f6'};display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;margin-top:2px">${catEmoji[e.category]||'📦'}</div>
+      <div class="ii">
+        <div class="iname" style="font-size:13px">${esc(e.description)}</div>
+        <div class="isub">${e.category} · ${new Date(e.date).toLocaleDateString('en-IN')}${e.notes?' · <em>'+esc(e.notes)+'</em>':''}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0">
+        <div style="font-family:var(--serif);font-weight:700;font-size:15px;color:var(--re)">${fmt(e.amount)}</div>
+        <button class="btn brd bsm" style="padding:3px 7px;font-size:10px;margin-top:3px" data-action="del-expense" data-id="${e.id}">✕</button>
+      </div>
+    </div>`).join('');
+
+  // Quick-add preset buttons
+  const presetBtns = EXP_PRESETS.map(p=>`
+    <button class="btn bsm" style="background:${p.bg};color:#333;border:1px solid ${p.color};font-size:11px;margin:3px"
+      data-action="quick-expense" data-cat="${esc(p.cat)}">
+      ${p.cat}
+    </button>`).join('');
+
+  return`
+<!-- Header -->
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+  <span class="stt" style="margin-bottom:0">Society Expenses</span>
+  <button class="btn bg bsm" data-action="add-expense">+ Add Entry</button>
+</div>
+
+<!-- Month filter -->
+<div class="crd" style="padding:10px 14px;margin-bottom:10px">
+  <div style="display:flex;gap:8px">
+    <select class="inp" style="flex:2;padding:7px 28px 7px 10px;font-size:14px"
+      onchange="S.expFilter={...(S.expFilter||{}),month:+this.value};render()">
+      ${MO.map((m,i)=>`<option value="${i+1}" ${em.month===i+1?'selected':''}>${m}</option>`).join('')}
+    </select>
+    <select class="inp" style="flex:1;padding:7px 28px 7px 10px;font-size:14px"
+      onchange="S.expFilter={...(S.expFilter||{}),year:+this.value};render()">
+      ${yrs.map(y=>`<option value="${y}" ${em.year===y?'selected':''}>${y}</option>`).join('')}
+    </select>
+  </div>
+</div>
+
+<!-- Balance strip -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+  <div class="sc" style="padding:12px"><div class="sl">Collected</div><div style="font-family:var(--serif);font-size:17px;font-weight:700;color:var(--gr)">${fmt(collected)}</div></div>
+  <div class="sc" style="padding:12px"><div class="sl">Spent</div><div style="font-family:var(--serif);font-size:17px;font-weight:700;color:var(--re)">${fmt(totalExp)}</div></div>
+  <div class="sc" style="padding:12px"><div class="sl">Balance</div><div style="font-family:var(--serif);font-size:17px;font-weight:700;color:${balance>=0?'var(--gr)':'var(--re)'}">${fmt(Math.abs(balance))}</div><div style="font-size:9px;color:var(--mu)">${balance>=0?'surplus':'deficit'}</div></div>
+</div>
+
+<!-- Quick Add Presets -->
+<div class="crd" style="padding:12px 14px">
+  <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Quick Add — Tap a Category</div>
+  <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px">${presetBtns}</div>
+</div>
+
+<!-- Category breakdown -->
+${catTotals.length?`<div class="crd"><div class="stt">Category Summary</div>
+  ${catTotals.map(ct=>`<div class="li">
+    <div style="width:36px;height:36px;border-radius:8px;background:${catBg[ct.cat]||'#f3f4f6'};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${catEmoji[ct.cat]||'📦'}</div>
+    <div class="ii"><div class="iname">${ct.cat.replace(/[🔒🧹💧⚡🔧📋📦]/g,'').trim()}</div><div class="isub">${ct.count} item${ct.count>1?'s':''}</div></div>
+    <div style="font-family:var(--serif);font-weight:700;font-size:15px;color:var(--re)">${fmt(ct.total)}</div>
+  </div>`).join('')}
+  <div style="display:flex;justify-content:space-between;padding:10px 0 2px;border-top:1.5px solid #f0ebe0;margin-top:4px">
+    <span style="font-weight:700;color:var(--tx)">Total</span>
+    <span style="font-family:var(--serif);font-weight:700;font-size:16px;color:var(--re)">${fmt(totalExp)}</span>
+  </div>
+</div>`:''}
+
+<!-- All entries -->
+<div class="crd">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+    <div class="stt" style="margin-bottom:0">All Entries — ${MO[em.month-1]} ${em.year}</div>
+    <span style="font-size:11px;color:var(--mu)">${filtered.length} items</span>
+  </div>
+  ${expRows||`<div class="emp" style="padding:20px 0">
+    <div style="font-size:32px;opacity:.4;text-align:center;margin-bottom:8px">💸</div>
+    <p style="text-align:center;color:var(--mu);font-size:13px">No expenses for ${MO[em.month-1]} ${em.year}<br>Tap <strong>+ Add Entry</strong> or a category above</p>
+  </div>`}
+</div>`;
+}
+
 function renderSettings(){
   return`<div class="stt">Settings</div>
 <div class="crd">
@@ -913,21 +1075,53 @@ function renderPdfGuide(data){
 <button class="btn bo" style="width:100%" data-action="close-modal">Close</button>`;
 }
 
-function renderAddExpense(){
+function renderAddExpense(presetCat='', presetDesc=''){
   const today=new Date().toISOString().slice(0,10);
-  return`<div class="mttl">💸 Add Society Expense</div>
-<div class="ig"><label class="il">Description *</label><input class="inp" id="exp-desc" placeholder="e.g. Corridor light replacement" autofocus></div>
-<div style="display:flex;gap:10px">
-  <div class="ig" style="flex:1.2"><label class="il">Amount (₹) *</label><input class="inp" id="exp-amt" type="number" placeholder="0"></div>
-  <div class="ig" style="flex:1"><label class="il">Date *</label><input class="inp" id="exp-date" type="date" value="${today}"></div>
-</div>
-<div class="ig"><label class="il">Category</label>
-  <select class="inp" id="exp-cat">
-    <option>Repair</option><option>Cleaning</option><option>Electricity</option>
-    <option>Water</option><option>Security</option><option>Miscellaneous</option>
+  // Build category options from presets
+  const catOpts = EXP_PRESETS.map(p=>`<option value="${p.cat}" ${presetCat===p.cat?'selected':''}>${p.cat}</option>`).join('');
+
+  // If preset selected, show its common items as quick-fill buttons
+  const preset = EXP_PRESETS.find(p=>p.cat===presetCat);
+  const quickItems = preset ? preset.items.map(item=>
+    `<button type="button" class="btn bsm" style="background:#f0f4ff;color:var(--n);border:1px solid #dde4ff;font-size:11px;margin:2px"
+      onclick="document.getElementById('exp-desc').value='${item.replace(/'/g,"\\'")}'">${item}</button>`
+  ).join('') : '';
+
+  return`<div class="mttl">💸 Add Expense Entry</div>
+
+${presetCat?`<div style="background:${(EXP_PRESETS.find(p=>p.cat===presetCat)||{}).bg||'#f3f4f6'};border-radius:10px;padding:8px 12px;margin-bottom:12px;font-size:12px;font-weight:600;color:#333">${presetCat}</div>`:''}
+
+<div class="ig">
+  <label class="il">Category *</label>
+  <select class="inp" id="exp-cat" onchange="S.modal={type:'addExpense',data:{cat:this.value,desc:''}};render()">
+    <option value="">— Select Category —</option>
+    ${catOpts}
   </select>
 </div>
-<div class="ig"><label class="il">Paid By / Notes (optional)</label><input class="inp" id="exp-note" placeholder="e.g. Paid by Secretary from fund"></div>
+
+${quickItems?`<div style="margin-bottom:14px"><label class="il">Common Items — tap to fill</label><div style="display:flex;flex-wrap:wrap;gap:4px">${quickItems}</div></div>`:''}
+
+<div class="ig">
+  <label class="il">Description *</label>
+  <input class="inp" id="exp-desc" placeholder="e.g. Watchman April salary" value="${esc(presetDesc)}" autocomplete="off">
+</div>
+
+<div style="display:flex;gap:10px">
+  <div class="ig" style="flex:1.2">
+    <label class="il">Amount (₹) *</label>
+    <input class="inp" id="exp-amt" type="number" placeholder="0" inputmode="numeric">
+  </div>
+  <div class="ig" style="flex:1">
+    <label class="il">Date *</label>
+    <input class="inp" id="exp-date" type="date" value="${today}">
+  </div>
+</div>
+
+<div class="ig">
+  <label class="il">Paid By / Notes (optional)</label>
+  <input class="inp" id="exp-note" placeholder="e.g. Paid from fund by Secretary">
+</div>
+
 <div style="display:flex;gap:10px;margin-top:4px">
   <button class="btn bo" style="flex:1" data-action="close-modal">Cancel</button>
   <button class="btn bn" style="flex:1.5" data-action="save-expense">Save Expense ✓</button>
@@ -1284,13 +1478,18 @@ document.addEventListener('click',function(e){
     LS.setPin(nw);showToast('PIN changed successfully ✓');S.modal=null;render();return;
   }
   if(a==='force-refresh'){if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(regs=>{Promise.all(regs.map(r=>r.unregister())).then(()=>{caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>{showToast('Reloading...','ok');setTimeout(()=>window.location.reload(true),800);});});});}else window.location.reload(true);return;}
-  if(a==='add-expense'){S.modal={type:'addExpense'};render();return;}
+  if(a==='add-expense'){S.modal={type:'addExpense',data:{cat:'',desc:''}};render();return;}
+  if(a==='quick-expense'){
+    const cat=el.dataset.cat||'';
+    S.modal={type:'addExpense',data:{cat,desc:''}};render();return;
+  }
   if(a==='save-expense'){
     const desc=document.getElementById('exp-desc')?.value.trim();
     const amt=+(document.getElementById('exp-amt')?.value||0);
     const date=document.getElementById('exp-date')?.value;
-    const cat=document.getElementById('exp-cat')?.value||'Miscellaneous';
+    const cat=document.getElementById('exp-cat')?.value||'Miscellaneous 📦';
     const note=document.getElementById('exp-note')?.value.trim();
+    if(!cat||cat===''){alert('Please select a category');return;}
     if(!desc){alert('Description required');return;}
     if(!amt||amt<=0){alert('Enter a valid amount');return;}
     if(!date){alert('Date required');return;}
