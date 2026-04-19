@@ -1,54 +1,37 @@
-// Supreme Limra Society — Service Worker v4
-// Force new cache on every deploy
-const CACHE = 'slimra-v4';
-const ALWAYS_FRESH = ['/', '/index.html', './index.html'];
+// ═══════════════════════════════════════════════
+//  SERVICE WORKER — Ramadan 2026 India
+// ═══════════════════════════════════════════════
+const CACHE = 'ramadan2026-v2';
+const FILES = ['/index.html', '/manifest.json', '/sw.js', '/icon-192.png', '/icon-512.png'];
 
-self.addEventListener('install', e => {
+self.addEventListener('install', function(e) {
   e.waitUntil(
-    caches.open(CACHE).then(cache => {
-      return Promise.allSettled([
-        cache.add('./manifest.json').catch(()=>{}),
-        cache.add('./icon.svg').catch(()=>{}),
-      ]);
+    caches.open(CACHE).then(function(c) {
+      return Promise.allSettled(FILES.map(function(f){ return c.add(f).catch(function(){}); }));
+    }).then(function(){ return self.skipWaiting(); })
+  );
+});
+
+self.addEventListener('activate', function(e) {
+  e.waitUntil(
+    caches.keys().then(function(keys) {
+      return Promise.all(keys.filter(function(k){ return k !== CACHE; }).map(function(k){ return caches.delete(k); }));
+    }).then(function(){ return self.clients.claim(); })
+  );
+});
+
+self.addEventListener('fetch', function(e) {
+  if (e.request.method !== 'GET') return;
+  e.respondWith(
+    caches.match(e.request).then(function(cached) {
+      var net = fetch(e.request).then(function(r) {
+        if (r && r.status === 200) {
+          var clone = r.clone();
+          caches.open(CACHE).then(function(c){ c.put(e.request, clone); });
+        }
+        return r;
+      }).catch(function(){});
+      return cached || net || caches.match('/index.html');
     })
   );
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.map(k => {
-        if(k !== CACHE) return caches.delete(k);
-      }))
-    ).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', e => {
-  const url = new URL(e.request.url);
-  const isHTML = e.request.destination === 'document' ||
-                 url.pathname.endsWith('.html') ||
-                 url.pathname === '/';
-
-  if (isHTML) {
-    // Always network-first for HTML — never serve cached HTML
-    e.respondWith(
-      fetch(e.request, {cache: 'no-store'})
-        .catch(() => caches.match('./index.html'))
-    );
-  } else {
-    e.respondWith(
-      caches.match(e.request).then(cached => {
-        if (cached) return cached;
-        return fetch(e.request).then(response => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE).then(cache => cache.put(e.request, clone));
-          }
-          return response;
-        }).catch(() => cached);
-      })
-    );
-  }
 });
